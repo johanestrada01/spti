@@ -257,7 +257,7 @@ class QuotationServiceTest {
     @Test
     void shouldNotCalculateSubtotalById(){
         try {
-            double total = quotationService.calculateSubTotal(0);
+            quotationService.calculateSubTotal(0);
             fail();
         }
         catch (ServiceException serviceException){
