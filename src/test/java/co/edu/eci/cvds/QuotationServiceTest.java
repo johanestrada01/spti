@@ -335,6 +335,26 @@ class QuotationServiceTest {
             fail();
         }
     }
+
+    @Test
+void shouldNotAddItemById() {
+    Category category = new Category("category");
+    categoryService.addCategory(category);
+
+    Item item = new Item("name", "shortDescription", "image", "technical", 125000.0, 10.0, 100.0, true, 19.0, category);
+    itemService.addItem(item);
+
+    try {
+        quotationService.addItem(0, item);
+        fail("Expected a ServiceException to be thrown.");
+    } catch (ServiceException serviceException) {
+        assertEquals(ServiceException.nonExistentQuotation, serviceException.getMessage());
+    } catch (ModelException modelException) {
+        fail("Unexpected ModelException was thrown: " + modelException.getMessage());
+    }
+}
+
+
     @Test
     void shouldDeleteItem(){
         Category category = new Category("category");
