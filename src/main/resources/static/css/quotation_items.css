@@ -274,7 +274,7 @@
 
 #subtotal-items{
     grid-column: 2;
-    font-family: 'Conamore Semi Bold', 'sans-serif';
+    font-family: 'Conamore Semi Bold', sans-serif;
     font-size: 1.5vh;
     justify-self: center;
     padding-right: 20px;
@@ -289,7 +289,7 @@
 
 #taxes-text{
     grid-column: 1;
-    font-family: 'Conamore Semi Bold', 'sans-serif';
+    font-family: 'Conamore Semi Bold', sans-serif;
     padding: 10px;
     padding-left: 20px;
     font-size: 1.5vh;
@@ -305,12 +305,12 @@
 
 #tax{
     grid-column: 1;
-    font-family: 'Conamore Semi Bold', 'sans-serif';
+    font-family: 'Conamore Semi Bold', sans-serif;
     font-size: 1.5vh;
 }
 #tax-per-item{
     grid-column: 2;
-    font-family: 'Conamore Semi Bold', 'sans-serif';
+    font-family: 'Conamore Semi Bold', sans-serif;
     font-size: 1.5vh;
     justify-self: center;
 }
@@ -324,13 +324,13 @@
 
 #total-text{
     grid-column: 1;
-    font-family: 'Conamore Semi Bold', 'sans-serif';
+    font-family: 'Conamore Semi Bold', sans-serif;
     font-size: 1.5vh;
 }
 
 #total-count{
     grid-column: 2;
-    font-family: 'Conamore Semi Bold', 'sans-serif';
+    font-family: 'Conamore Semi Bold', sans-serif;
     font-size: 1.5vh;
     justify-self: center;
 }
@@ -354,7 +354,7 @@
     color: #FFFFFF;
     background-color: #0D131A;
     box-shadow: 0px 0px 8px #0D131A;
-    font-family: 'Conamore Regular', 'sans-serif';
+    font-family: 'Conamore Regular', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
