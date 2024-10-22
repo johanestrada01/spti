@@ -115,8 +115,7 @@ class ItemServiceTest {
     @Test
     void shouldNotUpdateAnItem(){
     try {
-        Item item = new Item("name", "shortDescription", "image", "technical", 10.0, 10.0, 10.0, true, 10.0, category);
-        itemService.updateItem(item);
+        itemService.updateItem(new Item("name", "shortDescription", "image", "technical", 10.0, 10.0, 10.0, true, 10.0, category));
         fail("Expected a ServiceException to be thrown.");
     	} catch (ServiceException serviceException) {
         	assertEquals(ServiceException.nonExistentItem, serviceException.getMessage());
