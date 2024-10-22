@@ -18,8 +18,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/*import org.junit.jupiter.api.Test;*/
-
 @SpringBootTest
 class QuotationServiceTest {
 
@@ -34,6 +32,7 @@ class QuotationServiceTest {
 
     @Test
     void contextLoads() {
+	//void metod
     }
 
     @Test
