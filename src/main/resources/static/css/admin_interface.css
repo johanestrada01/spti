@@ -76,14 +76,6 @@ label {
     text-align: center;
 }
 
-sublabel {
-    font-family: 'Conamore Bold', sans-serif;
-    font-size: 0.8vw;
-    display: block;
-    margin-bottom: 15px;
-    color: #ffffff;
-    text-align: center;
-}
 
 .menu-lateral button {
     display: block;
