@@ -105,7 +105,6 @@
     grid-auto-rows: 150px;
     grid-gap: 40px; /* espacio vertical y horizontal entre elementos*/
     margin-top: 5%;
-    margin-left: 5%;
     margin-right: 5%;
     padding-right: 15px;
     padding-left: 15px;
@@ -152,8 +151,6 @@
     background: #D91F28;
     border-radius: 5px;
 }
-
-/**/
 
 .loader-wrapper {
     width: 100%;
