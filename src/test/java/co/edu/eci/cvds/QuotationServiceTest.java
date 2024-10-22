@@ -335,7 +335,6 @@ class QuotationServiceTest {
             fail();
         }
     }
-
     @Test
     void shouldDeleteItem(){
         Category category = new Category("category");
