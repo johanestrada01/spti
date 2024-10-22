@@ -1,8 +1,6 @@
 package co.edu.eci.cvds.model;
 
 import jakarta.persistence.*;
-
-import java.sql.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
