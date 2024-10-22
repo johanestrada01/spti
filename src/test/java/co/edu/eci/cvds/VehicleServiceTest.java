@@ -13,8 +13,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/*import org.junit.jupiter.api.Test;*/
-
 @SpringBootTest
 class VehicleServiceTest {
 
@@ -23,6 +21,7 @@ class VehicleServiceTest {
 
     @Test
     void contextLoads() {
+        // void
     }
 
     @Test
@@ -149,13 +148,10 @@ class VehicleServiceTest {
     }
 
     @Test
-    void shouldNotUpdateVehicle(){
+    void shouldNotUpdateVehicle() throws ModelException {
+        Vehicle vehicleAudi = new Vehicle("AUDI", "A1", 2022, 100);
         try{
-            Vehicle vehicleAudi = new Vehicle("AUDI", "A1", 2022, 100);
             vehicleService.updateVehicle(vehicleAudi);
-            fail();
-        }
-        catch(ModelException modelException){
             fail();
         }
         catch(ServiceException serviceException){
