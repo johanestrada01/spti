@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"><!-- //NOSONAR -->
+<th:block th:replace="fragments/general.html::headerfiles('Login Page')"></th:block>
+<body>
+<img src="/hackers.jpg" class="rounded mx-auto d-block" alt="example-protected">
+<form action="/login/logout" method="post">
+    <input type="submit" value="Logout" />
+</form>
+</body>
+</html>

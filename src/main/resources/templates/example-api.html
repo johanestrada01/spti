@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"><!-- //NOSONAR -->
+<th:block th:replace="fragments/general.html::headerfiles('Example Page')"></th:block>
+<body>
+<header th:replace="fragments/general::header"/>
+<script>
+    function addDataToTable(dataConfiguration) {
+        let dataHtml = `<tr>
+                <th>Nombre Configuración</th>
+                <th>Valor Configuración</th>
+            </tr>`;
+        dataHtml += dataConfiguration.map((configuration) => {
+            return `<tr>
+                        <td>${configuration.propiedad}</td>
+                        <td>${configuration.valor}</td>
+                    </tr>`
+        }).join("");
+        console.log("dataHtml", dataHtml);
+        const table = document.querySelector("#configurations");
+        table.innerHTML = dataHtml;
+    }
+
+    async function getFromApi() {
+        const response = await fetch('api/configurations');
+        const data = await response.json();
+        console.log("data", data);
+        addDataToTable(data);
+    }
+
+    async function postToApi(event) {
+        event.preventDefault();
+        const propiedad = document.querySelector("#propiedad").value;
+        const valor = document.querySelector("#valor").value;
+        const response = await fetch('api/configurations', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({propiedad: propiedad, valor: valor}),
+        });
+        const data = await response.json();
+        console.log("data", data);
+        addDataToTable(data);
+    }
+</script>
+<main>
+    <br>
+    <div class="container">
+        <button onclick="getFromApi()" type="button" class="btn btn-primary">Mostrar todas las configuraciones desde una API</button>
+        <br><br>
+        <table id="configurations" class="table">
+        </table>
+    </div>
+    <br><br><br>
+    <div class="container">
+        <h2>Crear una nueva configuración</h2>
+        <form onsubmit="postToApi(event)">
+            <div class="form-group">
+                <label for="propiedad">Propiedad</label>
+                <input type="text" class="form-control" id="propiedad" placeholder="property-name">
+            </div>
+            <div class="form-group">
+                <label for="valor">Valor</label>
+                <input type="text" class="form-control" id="valor" placeholder="property-value">
+            </div>
+            <br>
+            <input type="submit" class="btn btn-primary" value="Guardar Configuración">
+        </form>
+    </div>
+</main>
+</body>
+</html>

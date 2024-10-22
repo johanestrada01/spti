@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error Page</title>
+</head>
+<body>
+<h1>Something went wrong! </h1>
+<h1 style="color: red;" th:text="'error: ' + ${error}"/>
+<h1 style="color: red;" th:text="'status: ' + ${status}"/>
+<h1 style="color: red;" th:text="'message: ' + ${message}"/>
+<h2>Our Engineers are on it</h2>
+<a href="/">Go Home</a>
+
+<br><br><br><br><br>
+<!-- more: https://www.makeuseof.com/custom-error-pages-thymeleaf-spring-boot/ -->
+<p style="color: blue;" th:text="'timestamp: ' + ${timestamp}"/>
+<p th:text="'path: ' + ${path}"/>
+<p th:text="'exception: ' + ${exception}"/>
+<pre th:text="${trace}"/>
+</body>
+</html>
