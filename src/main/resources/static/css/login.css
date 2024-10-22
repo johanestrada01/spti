@@ -111,7 +111,6 @@ input[type="submit"] {
     box-shadow: 0px 0px 15px #050709;
     margin-top: 500px;
     display: block; /* Convertir en bloque para centrado horizontal */
-    margin: 30px auto 0;
 }
 
 /* Estilos para el botón de enviar al pasar el mouse */
