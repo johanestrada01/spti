@@ -7,7 +7,6 @@ import co.edu.eci.cvds.model.Item;
 import co.edu.eci.cvds.service.CategoryService;
 import co.edu.eci.cvds.service.ItemService;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/*import org.junit.jupiter.api.Test;*/
 
 @SpringBootTest
 class ItemServiceTest {
@@ -38,6 +36,7 @@ class ItemServiceTest {
 
     @Test
     void contextLoads() {
+	//void metod
     }
 
     @Test
@@ -304,7 +303,7 @@ class ItemServiceTest {
         for(Item item: itemList){
             itemService.deleteItem(item);
         }
-        for(Category category: categoryList){
+        for(Category category1: categoryList){
             categoryService.deleteCategory(category);
         }
     }
