@@ -1,0 +1,352 @@
+/* General Styles */
+@font-face {
+    font-family: 'Conamore Regular';
+    src: url('../fonts/Conamore-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Conamore Bold';
+    src: url('../fonts/Conamore-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Conamore Semi Bold';
+    src: url('../fonts/Conamore-Semi-Bold.woff') format('woff');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Conamore Regular', sans-serif;
+    background-color: #bbbdbc;
+}
+
+/* Background */
+.allContainer {
+    display: flex;
+    height: 100vh;
+}
+
+/* Header */
+.header {
+    width: 100vw;
+    height: 12vh;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: #0D131A;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+
+.logo {
+    height: 4vh;
+}
+
+/* Selected Bar */
+.selectedBar {
+    width: 35%;
+    height: 20%;
+    background-color: transparent;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-right: 120px;
+}
+
+.selectedBar div {
+    font-family: 'Conamore Regular', sans-serif;
+    color: #FFCF28;
+    font-size: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #ccc;
+}
+
+.selectedBar div:last-child {
+    border-right: none;
+}
+
+/* Sidebar */
+.menu-lateral {
+    width: 20%;
+    height: 100vh;
+    background-color: #0b121a;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.text {
+    font-family: 'Conamore Bold', sans-serif;
+    font-size: 1.5vw;
+    color: #fad530;
+    text-align: left;
+    letter-spacing: 2px;
+    padding: 2vh;
+}
+
+.picture {
+    height: 6vh;
+    text-align: center;
+}
+
+.logo {
+    height: 6vh;
+    padding: 20px;
+    width: 100%;
+}
+
+label {
+    font-family: 'Conamore Bold', sans-serif;
+    font-size: 1.5vw;
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+    text-align: center;
+}
+
+sublabel {
+    font-family: 'Conamore Bold', sans-serif;
+    font-size: 0.8vw;
+    display: block;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.menu-lateral button {
+    display: block;
+    width: 80%;
+    margin: 5px auto;
+    padding: 10px;
+    color: white;
+    background-color: #0b121a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+}
+
+/* Cart */
+.cart {
+    width: 3%;
+    height: 40%;
+    background-color: #292C33;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+/* Search */
+.search {
+    position: relative;
+    width: 35%;
+    height: 4%;
+    background-color: #69727D;
+    border-radius: 20px;
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 15px #0D131A;
+}
+
+.search input {
+    font-family: 'Conamore Regular', sans-serif;
+    color: #E3E6EC;
+    width: calc(100% - 40px);
+    height: 100%;
+    border: none;
+    background: transparent;
+    font-size: 17px;
+    padding: 7px 40px 7px 20px;
+}
+
+.search img {
+    left: 10px;
+    width: 20px;
+    height: auto;
+}
+
+.search input:focus {
+    outline: none;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-left: 20%;
+    box-sizing: border-box;
+}
+
+/* Categories Box */
+.categories-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.title {
+    font-family: 'Conamore Regular', sans-serif;
+    color: #FFCF28;
+    font-size: 2.3vh;
+    letter-spacing: 1px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.categories {
+    width: 18vw;
+    height: 35vh;
+    background-color: #0D131A;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px #0D131A;
+    border: 1px solid #b0c0d150;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.categories button {
+    font-family: 'Conamore Regular', sans-serif;
+    color: #FFFFFF;
+    font-size: 1.8vh;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: auto;
+    background-color: transparent;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+    padding: 7px 20px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.categories button.active,
+.categories button:focus {
+    border-color: red;
+    box-shadow: 0px 0px 15px #d80d0d62;
+}
+
+/* Services Box */
+.services-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.services-grid {
+    width: 70vw;
+    height: 80vh;
+    background-color: #BCBCBC;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    grid-gap: 1vw; /* espacio vertical y horizontal entre elementos */
+    padding: 50px;
+    overflow: auto;
+}
+
+.services-grid::-webkit-scrollbar {
+    width: 7px;
+}
+
+.services-grid::-webkit-scrollbar-thumb {
+    background: #69727d;
+    border-radius: 10px;
+}
+
+.cajas {
+    background-color: #0b121a;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cajas .image img {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 8vh;
+}
+
+.cajas .info {
+    width: 100%;
+    height: auto;
+    background-color: #BCBCBC;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.cajas .service-type-text {
+    padding: 7px;
+    font-family: 'Conamore Regular', sans-serif;
+    color: #0D131A;
+    font-size: 1.5vh;
+    background-color: #0b121a;
+    text-align: left;
+}
+
+.cajas .service-type-text label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.cajas .service-type-text input,
+.cajas .service-type-text select {
+    width: calc(100% - 20px);
+    padding: 5px 10px;
+    font-family: 'Conamore Regular', sans-serif;
+    font-size: 1.2vh;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.cajas .price-add {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 0.5vh;
+}
+
+.cajas .add {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s ease;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+}
+
+.cajas .add img {
+    height: 2.9vh;
+}
+
+.cajas .add:hover {
+    transform: scale(1.05);
+}

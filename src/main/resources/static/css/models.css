@@ -1,0 +1,170 @@
+@font-face {
+    font-family: 'Conamore Regular';
+    src: url('../fonts/Conamore-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Conamore Bold';
+    src: url('../fonts/Conamore-Bold.woff') format('woff');
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background: #0D131A;
+    display: flex;
+    align-items: center; /* centrar horizontalmente */
+    justify-content: center;
+    position: relative;
+}
+
+.centered {
+    display: flex;
+    justify-content: center; /* centrar horizontalmente */
+}
+
+.logo {
+    position: absolute;
+    top: 50px;
+    height: 6vh;
+    left: 20%;
+    text-align: center;
+}
+
+.logo a img[src$=".svg"] {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+/*Contenedor más grande*/
+.rectangle {
+    width: 65vw;
+    height: 70vh;
+    background-color: #0D131A;
+    border: 1px solid #D91F28;
+    border-radius: 25px;
+    box-shadow: 0px 0px 15px #050709ef; /* sombra*/
+}
+
+.text {
+    font-family: 'Conamore Bold', sans-serif;
+    font-size: 2vw;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 10vh; /* altura de línea para centrar verticalmente */
+    letter-spacing: 2px;
+    padding-top: 2vh;
+}
+
+.botones {
+    display: flex;
+    justify-content: space-between; /* distribuye los botones horizontalmente */
+    margin-left: 4vw;
+    margin-right: 4vw;
+    margin-top: 1vh;
+}
+
+.botones button {
+    font-family: 'Conamore Bold', sans-serif;
+    border-radius: 8px;
+    border: 1px solid #69727D;
+    background-color: #292C33;
+    color: #E3E6EC;
+    letter-spacing: 1px;
+    box-shadow: 0px 0px 15px #050709;
+}
+
+.botones .stage {
+    width: 13vw;
+    height: 4vh;
+    border-radius: 8px;
+    border: 1px solid #69727D;
+    background-color: #292C33;
+    color: #E3E6EC;
+    box-shadow: 0px 0px 15px #050709;
+    font-size: 0.8vw; /* Tamaño de fuente responsive */
+    padding: 1vh 2vw; /* Padding responsive */
+}
+
+
+.botones .stage.active {
+    background-color: #D91F28;
+    border: 0;
+}
+
+.rectangle-grid {
+    height: 40vh;
+    margin-left: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+    grid-auto-rows:40%;
+    grid-gap: 0.2; /* espacio vertical y horizontal entre elementos*/
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    padding-right: 15px;
+    padding-left: 15px;
+    overflow-y: scroll;
+    grid-auto-flow: row;
+}
+
+.rectangle-grid button {
+    background-color: transparent ;
+    width: 10vw; /* Botones ocupan todo el ancho de la celda */
+    height: 13vh;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: box-shadow 0.35s ease-in-out;
+}
+/*Contenedor del fondo de la imagen cuándo la imagen es seleccioanda*/
+.rectanglee.active {
+    background-color: transparent;
+    border: 1px solid #D91F28;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(217, 31, 40, 0.5);
+}
+
+/*Contenedor de la imagen*/
+.rectangle-grid button img {
+    border: none; /* Quita el borde por defecto */
+
+    max-width: 80%;
+    max-height: 80%;
+    width: auto;
+    height: auto;
+    transition: transform 0.3s ease; 
+    display: block;
+    margin: auto; /* centra horizontalmente */
+    align-self: center;
+    cursor: pointer;
+}
+
+
+.rectangle-grid button:hover {
+    border: 1px solid #D91F28;
+    box-shadow: 0px 0px 15px #d91f2898;
+    background-color:#0b1016;
+}
+
+.rectangle-grid button span {
+    text-align: center;
+    color: #FFFFFF;
+    font-family: 'Conamore Bold', sans-serif;
+    font-size: 1.5vh;
+}
+.rectangle-grid::-webkit-scrollbar{
+    width: 7px;
+}
+
+.rectangle-grid::-webkit-scrollbar-thumb{
+    background: #D91F28;
+    border-radius: 5px;
+}

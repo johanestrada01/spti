@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portal del Administrador</title>
+        <link rel="stylesheet" href="../static/css/admin_item.css">
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="menu-lateral">
+                <div class="text">¡Hola!</div>
+                <div class="perfil">
+                    <img src="../static/images/usuario.png" class="picture">
+                    <span id="name-user">Alejandro</span>
+                    <span id="role-user">Administrador</span>
+                </div>
+                <div id="admin-buttons">
+                    <div class="admin-button-div">
+                        <form action="/user/getQuotation" method="get">
+                            <button class="admin-choice" type="submit">Ver Cotizaciones</button>
+                        </form>
+                    </div>
+                    <div class="admin-button-div">
+                        <form action="/user/getItems" method="get">
+                            <button class="admin-choice">Administrar productos</button>
+                        </form>
+                    </div>
+                </div>
+                <div id="logo-tg">
+                    <img src="https://topgearbogota.com/wp-content/uploads/2023/09/LogoTopGear.svg" id="logo">
+                </div>
+            </div>
+
+            <div class="contenido">
+                <div class="text-contenido">Cotizaciones</div>
+                <div class="services-grid">
+                    <div th:each="quotation : ${quotations}" class="cajas-cotizacion">
+                        <button class="quote-button">
+                            <div>
+                                <span class="quotation-total" th:text="${quotation.total}"></span>
+                                <span class="quotation-date" th:text="${quotation.creationDate}"></span>
+                                <span class="quotation-state" th:text="${quotation.status}"></span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <script th:src="@{/static/js/admin.js}"></script>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotización</title>
+    <link rel="stylesheet" href="../static/css/quotation.css">
+
+
+</head>
+<body>
+    <div class="allContainer">
+        
+        <div class="header">
+            <div class="logo2">
+                <img src="https://topgearbogota.com/wp-content/uploads/2023/09/LogoTopGear.svg" class="logo">
+            </div>
+            <div class="selectedBar">
+                <div class="brand">Audi</div>
+                <div class="model">A1</div>
+                <div class="year">2000</div>
+                <div class="cylinder">1400</div>
+            </div>
+            <button class="cart">
+                <img src="images/shopping-cart.png" alt="" height="20" id="shoppingcartIcon">
+            </button>
+
+
+        </div>
+
+        <div class="search">
+            <input type="text">
+            <img src="images/search.png" alt="" id="searchIcon">
+        </div>
+
+
+        <div class="content">
+            <div class="categories-box">
+                <div class="title"> ¿Qué servicios necesita <br> tu vehículo? </div>
+                <div class="categories">
+                    <button class="active">Mantenimiento preventivo</button>
+                    <button>Reparación y reemplazo de piezas</button>
+                    <button>Inspección y evaluación</button>
+                    <button>Ajuste y Equilibrio</button>
+                </div>
+            </div>
+            <div class="services-box">
+                <div class="services-grid">
+                    <div class="cajas">
+                        <div class="image">
+                            <img src="images\servicios\mantenimiento-preventivo\correa-reparticion.png" alt="">
+                        </div>
+                        <div class="info">
+                            <div class="service-type-text">Cambio de Correa de Repartición</div>
+                            <div class="price-add">
+                                <div class="price">$50,000</div>
+                                <a class="add">
+                                    <img src="images\servicios\add.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cajas">
+                        <div class="image">
+                            <img src="images\servicios\mantenimiento-preventivo\cambio-amortiguador.png" alt="">
+                        </div>
+                        <div class="info">
+                            <div class="service-type-text">Cambio de amortiguadores</div>
+                            <div class="price-add">
+                                <div class="price">$50,000</div>
+                                <a class="add">
+                                    <img src="images\servicios\add.png" alt="">
+                                </a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="cajas">
+                        <div class="image">
+                            <img src="images\servicios\mantenimiento-preventivo\cambio-aceite.png" alt="" >
+                        </div>
+                        <div class="info">
+                            <div class="service-type-text">Cambios de aceite y filtros</div>
+                            <div class="price-add">
+                                <div class="price">$50,000</div>
+                                <a class="add">
+                                    <img src="images\servicios\add.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+            <div class="cart-content">
+                <div class="header-cart">
+                    <button id="close-button">
+                        <img src="images/servicios/close.png" alt="">
+                    </button>
+                    <div id="main-text-cart">Tu Carrito</div>
+                </div>
+                <div class="services-items">
+                    <div class="separator"></div>
+                </div>
+            </div>
+    </div>
+    <script src="categoryCode.js"></script>
+</body>
+</html>

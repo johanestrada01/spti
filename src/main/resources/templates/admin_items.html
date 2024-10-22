@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portal del Administrador</title>
+        <link rel="stylesheet" type="text/css" href="../static/css/admin_item.css">
+
+
+    </head>
+    <body>
+        <div class="menu-lateral">
+            <div class="text">¡Hola!</div>
+            <div class="perfil">
+                <img th:src="@{/images/usuario.png}" alt="" height="20" class="picture">
+                <span id="name-user">Alejandro</span>
+                    <span id="role-user">Administrador</span>
+            </div>
+            <div id="admin-buttons">
+                <div class="admin-button-div">
+                    <form action="/user/getQuotation" method="get">
+                        <button class="admin-choice" type="submit">Ver Cotizaciones</button>
+                    </form>
+                </div>
+                <div class="admin-button-div">
+                    <form action="/user/getItems" method="get">
+                        <button class="admin-choice">Administrar productos</button>
+                    </form>
+                </div>
+            </div>
+            <div id="logo-tg">
+                <img src="https://topgearbogota.com/wp-content/uploads/2023/09/LogoTopGear.svg" id="logo">
+            </div>        
+        </div>
+
+        <div class="contenido">
+            <div class="text-contenido">Productos</div>
+            <div class="add-product-button">
+                <form action="/item/add" method="get">
+                    <button type="submit" class="admin-choice">Agregar Producto</button>
+                </form>
+            </div>
+            <div class="services-grid">
+                <div class="cajas" th:each="item : ${items}">
+                    <div class="image">
+                        <img th:id="'img-' + ${item.getName()}" alt="Imagen de servicio">
+                    </div>
+                    <div class="info">
+                        <div class="service-type-text" th:text="${item.getName()}"></div>
+                        <div class="price-add">
+                            <div class="price" th:text="${item.getValue()}"></div>
+                            <form id="crudForm" th:action="@{'/item/update'}" method="post">
+                                <input type="hidden" id="itemId" name="itemId" th:value="${item.itemId}">
+                                <button class="add" type="submit">
+                                    <img th:src="@{/static/images/servicios/add.png}" alt="add">
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script th:src="@{/static/js/admin.js}"></script>
+    </body>
+</html>

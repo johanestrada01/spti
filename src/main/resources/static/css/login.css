@@ -1,0 +1,146 @@
+
+@font-face {
+    font-family: 'Conamore Regular';
+    src: url('../fonts/Conamore-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Conamore Bold';
+    src: url('../fonts/Conamore-Bold.woff') format('woff');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background: #0D131A;
+    display: flex;
+    align-items: center; /* centrar horizontalmente */
+    justify-content: center;
+    position: relative;
+}
+
+.centered {
+    display: flex;
+    justify-content: center; /* centrar horizontalmente */
+}
+
+.logo {
+    position: absolute;
+    top: 50px;
+    height: 6vh;
+    left: 20%;
+    text-align: center;
+}
+
+.logo a img[src$=".svg"] {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+/*Contenedor más grande*/
+.rectangle {
+    width: 40vw;
+    height: 60vh;
+    background-color: #141c27;
+    box-shadow: 0px 0px 15px #050709ef; /* sombra*/
+    border-radius: 16px; /* Bordes redondeados */
+    padding: 40px;
+}
+
+.text {
+    font-family: 'Conamore Bold', sans-serif;
+    font-size: 2.5vw;
+    color: #fad530;
+    text-align: center;
+    letter-spacing: 2px;
+    padding-top: 2vh;
+}
+
+/* Estilos para el formulario */
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #141c27;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para las etiquetas */
+label {
+    font-family: 'Conamore Bold', sans-serif;
+    font-size: 0.9vw;
+    display: block;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+/* Estilos para los campos de entrada */
+input[type="text"],
+input[type="password"] {
+    font-family: 'Conamore Bold', sans-serif;
+    font-size: 1vw;
+    color: #ffffff;
+    width: 100%;
+    background-color: #282c31;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 0.5px solid #69727D;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px #050709;
+}
+
+/* Estilos para el botón de enviar */
+input[type="submit"] {    
+    font-family: 'Conamore Bold', sans-serif;
+    font-size: 1vw;
+    width: 12vw;
+    height: 5vh;
+    align-items: center;
+    border-radius: 8px;
+    border: 0.5px solid #69727D;
+    background-color: #fad530;
+    color: #000000;
+    box-shadow: 0px 0px 15px #050709;
+    margin-top: 500px;
+    font-size: 1vw; /* Tamaño de fuente responsive */
+    display: block; /* Convertir en bloque para centrado horizontal */
+    margin: 0 auto; /* Centrar horizontalmente */
+    margin: 30px auto 0;
+}
+
+/* Estilos para el botón de enviar al pasar el mouse */
+input[type="submit"]:hover {
+    transform: scale(1.01);
+}
+.loader-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    background-color: #0D131A;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    animation: move 2s linear infinite;
+}
+
+@keyframes move {
+    0% { transform: translateX(-50px); } /* Mueve la imagen hacia la izquierda */
+    100% { transform: translateX(50px); } /* Mueve la imagen hacia la derecha */
+}

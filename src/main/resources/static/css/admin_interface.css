@@ -1,0 +1,165 @@
+@font-face {
+    font-family: 'Conamore Regular';
+    src: url('../fonts/Conamore-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Conamore Bold';
+    src: url('../fonts/Conamore-Bold.woff') format('woff');
+}
+
+body {
+    margin: 0;
+    font-family: Conamore;
+    background-color: #bbbdbc;
+}
+
+.menu-lateral {
+    width: 20%;
+    height: 100vh;
+    background-color: #0b121a;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.contenido {
+    margin-left: 20%;
+    padding: 20px;
+    background-color: #bbbdbc;
+}
+
+.text{
+    font-family: 'Conamore Bold', sans-serif;
+    font-size: 1.5vw;
+    color: #fad530;
+    text-align: left;
+    letter-spacing: 2px;
+    padding-top: 2vh;
+    padding-left: 2vh;
+    padding-bottom: 2vh;
+}
+
+.text-contenido{
+    font-family: 'Conamore Bold', sans-serif;
+    font-size: 2.5vw;
+    color: #000000;
+    text-align: left;
+    letter-spacing: 2px;
+    padding-top: 2vh;
+    padding-left: 2vh;
+    padding-bottom: 2vh;
+}
+
+.picture {
+    position: center;
+    top: 50px;
+    height: 6vh;
+    left: 20%;
+    text-align: center;
+}
+
+.logo {
+    bottom: 0;
+    top: 50px;
+    height: 6vh;
+    padding: 20px;
+    width: 100%;
+}
+
+label {
+    font-family: 'Conamore Bold', sans-serif;
+    font-size: 1.5vw;
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+    text-align: center;
+}
+
+sublabel {
+    font-family: 'Conamore Bold', sans-serif;
+    font-size: 0.8vw;
+    display: block;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.menu-lateral button {
+    display: block;
+    width: 80%;
+    margin: 5px auto;
+    padding: 10px;
+    color: white;
+    background-color: #0b121a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.menu-lateral p {
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.services-grid{
+    width: 70vw;
+    height: 60vh;
+    background-color: #BCBCBC;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+    grid-auto-rows: 30%;
+    grid-gap: 1vw; /* espacio vertical y horizontal entre elementos*/
+    padding: 50px;
+    overflow: auto;
+}
+
+.services-grid::-webkit-scrollbar{
+    width: 7px;
+}
+
+.services-grid::-webkit-scrollbar-thumb{
+    background: #69727d;
+    border-radius: 10px;
+}
+
+.cajas {
+    width: 15vw;
+    height: 12vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #d8d8d8;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px #000000;
+    align-items: center;
+    justify-content: center;
+}
+
+.price {
+    flex: 1;
+    padding-top: 1.4vh;
+    font-family: 'Conamore Bold', sans-serif;
+    color: #252528;
+    font-size: 1.4vh;
+}
+
+.reference {
+    width: 8.5vw;
+    height: 7vh;
+    flex: 1;
+    background-color: #252528;
+}
+
+.date {
+    flex: 1;
+    bottom: 0;
+    text-align: right;
+    padding-left: 1vw;
+    padding-top: 1.4vh;
+    font-family: 'Conamore Bold', sans-serif;
+    color: #252528;
+    font-size: 1.4vh;
+}

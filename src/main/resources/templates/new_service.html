@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Item</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/update.css">
+</head>
+<body>
+<div class="allContainer">
+    <div class="menu-lateral">
+        <div class="text">¡Hola!</div>
+        <div class="perfil">
+            <img src="images/profile.png" alt="" height="20" class="picture">
+            <label>Alejandro</label>
+            <sublabel>Administrador</sublabel>
+        </div>
+        <form action="/user/getQuotation" method="get">
+            <button type="submit">Ver Cotizaciones</button>
+        </form>
+        <form action="/user/getItems" method="get">
+            <button>Administrar productos</button>
+        </form>
+        <img src="https://topgearbogota.com/wp-content/uploads/2023/09/LogoTopGear.svg" alt="" width="" height="57" class="logo">
+    </div>
+
+    <div class="content">
+        <div class="services-box">
+            <div class="services-grid">
+                <!-- Update Item Form -->
+                <div class="cajas">
+                    <form action="/item/addItem" method="POST">
+                        <div class="info">
+                            <div class="service-type-text">
+                                <input type="hidden" id="itemId" name="itemId" value="0">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="service-type-text">
+                                    <label for="name">Nombre:</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="service-type-text">
+                                    <label for="shortDescription">Descripcion corta:</label>
+                                    <input type="text" id="shortDescription" name="shortDescription" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="service-type-text">
+                                    <label for="technicalDescription">Descripcion tecnica:</label>
+                                    <input type="text" id="technicalDescription" name="technicalDescription" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="service-type-text">
+                                    <label for="image">Imagen:</label>
+                                    <input type="text" id="image" name="image" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="service-type-text">
+                                    <label for="value">Valor:</label>
+                                    <input type="number" id="value" name="value" step="0.01" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="service-type-text">
+                                    <label for="currency">Currency:</label>
+                                    <input type="number" id="currency" name="currency" step="0.01" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="service-type-text">
+                                    <label for="discount">Descuento (%):</label>
+                                    <input type="number" id="discount" name="discount" step="0.01" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="service-type-text">
+                                    <label for="tax">Impuestos (%):</label>
+                                    <input type="number" id="tax" name="tax" step="0.01" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="service-type-text">
+                                    <label for="availability">Disponibilidad:</label>
+                                    <select id="availability" name="availability"  required>
+                                        <option value="true" >Disponible</option>
+                                        <option value="false">No disponible</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="service-type-text">
+                                    <label for="category">Categoria:</label>
+                                    <select id="category" name="category" required>
+                                        <option value="1">Mantenimiento preventivo</option>
+                                        <option value="2">Reparación y reemplazo de piezas</option>
+                                        <option value="3">Inspección y evaluación</option>
+                                        <option value="4">Ajuste y equilibrio</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="price-add">
+                                <button type="submit">
+                                    <img src="update-icon.png" alt="Guardar">
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

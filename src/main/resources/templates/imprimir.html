@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal del Administrador</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/print.css">
+</head>
+
+<body>
+<div class="container">
+    <h1 class="text"> Cotización </h1>
+    <div class="centered">
+        <div class="rectangle">
+            <!--<div id="car-selected">Audi A3 2022</div>-->
+            <div id="car-selected" th:text="${vehicle.getBrand() + ' ' + vehicle.getModel() + ' ' + vehicle.getYear()}"></div>
+            <div id="quotationid" th:value="${quotation.getQuotationId()}"></div>
+            <div id="registry-info">
+                <span id="text-static-date" >Fecha: </span>
+                <span id="date" th:text="${quotation.getCreationDate()}"></span>
+            </div>
+            <div id="user-info-container">
+                <div class="user-info-boxes">
+                    <span class="static-text">Nombres:</span>
+                    <span class="user-text">Ana Maria Duran</span>
+                </div>
+                <div class="user-info-boxes user-info-cellphone">
+                    <span class="static-text">Celular:</span>
+                    <span class="user-text">3245930006</span>
+                </div>
+                <div class="user-info-boxes">
+                    <span class="static-text">Correo:</span>
+                    <span class="user-text">ana.duran-b@mail.escuelaing.edu.co</span>
+                </div>
+            </div>
+            <div class="summary-quote">
+                <span class="subtitle">Servicios</span>
+                <div id="items" >
+                    <div class="item" th:each="item : ${items}">
+                        <span class="item-description" th:text="${item.getName()}"></span>
+                        <span class="item-price" th:text="'$ ' + ${item.getValue()}"></span>
+                    </div>
+                </div>
+            </div>
+            <div id="subtotal">
+                <span id="subtitle">Subtotal</span>
+                <span id="subtotal-price" th:text="'$ ' + ${quotation.getSubtotal()}"></span>
+            </div>
+            <div class="taxes">
+                <span id="subtitle">Impuestos</span>
+                <div id="tax">
+                    <span id="tax-description">IVA</span>
+                    <span id="tax-price" th:text="'$ ' + ${quotation.getTaxes()}"></span>
+                </div>   
+            </div>
+            <div id="total">
+                <span id="subtitle-total">Total</span>
+                <span id="total-price" th:text="'$ ' + ${quotation.getTotal()}"></span>
+            </div>
+            
+        </div>
+        
+    </div>
+    <div id="buttons">
+        <a id="print-button" class="quotation-finish-button" type='button' onclick='handlePrint()'>Imprimir Cotización</a>
+        <a class="quotation-finish-button" href="https://wa.me/573502847357/?text=Quiero%20realizar%20una%20cotizacion" >Contactar Asesor</a>
+    </div>              
+    <div class="loader-wrapper">
+        <img class="loader" th:src="@{/images/login/carro-deportivo.png}">
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".loader-wrapper").fadeOut("slow");
+        
+        $("form").submit(function(){
+            $(".loader-wrapper").fadeIn("slow");
+        });
+    });
+
+    const handlePrint = () => {
+        var actContents = document.body.innerHTML;
+        document.body.innerHTML = actContents;
+        window.print();
+    }
+</script>
+</body>
+</html>

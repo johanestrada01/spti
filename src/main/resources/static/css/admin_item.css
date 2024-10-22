@@ -1,0 +1,281 @@
+@font-face {
+    font-family: 'Conamore Regular';
+    src: url('../fonts/Conamore-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Conamore Bold';
+    src: url('../fonts/Conamore-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Conamore Semi Bold';
+    src: url('../fonts/Conamore-Semi-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Conamore Light';
+    src: url('../fonts/Conamore-Light.woff') format('woff');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    position: relative;
+}
+
+/* Lateral */
+.menu-lateral {
+    position: absolute;
+    width: 18vw;
+    height: 100vh;
+    background-color: #0d131a;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.text{
+    font-family: 'Conamore Bold', sans-serif;
+    color: #FFCF28;
+    padding: 20px;
+    font-size: 3vh;
+}
+
+.perfil{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #FFCF28;
+}
+
+#name-user{
+    padding-top: 15px;
+    font-family: 'Conamore Bold', sans-serif;
+    color: #ffffff;
+}
+
+#role-user{
+    padding-top: 10px;
+    font-family: 'Conamore Light', sans-serif;
+    color: #ffffff;
+}
+
+.perfil img{
+    height: 8vh;
+}
+
+#admin-buttons{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+
+}
+
+.admin-choice{
+    background-color: transparent;
+    width: 15vw;
+    height: 5vh;
+    margin-top: 15px;
+    color: #ffffff;
+    font-family: 'Conamore Semi Bold', sans-serif;
+    border-radius: 10px;
+}
+
+#logo-tg {
+    align-self: flex-end;
+    margin-top: 45vh;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+#logo{
+    height: 4vh;
+}
+/* CONTENIDO COTIZACIONES*/
+
+.contenido {
+    position: absolute;
+    width: 82vw;
+    height: 100vh;
+    background-color: #bcbcbc;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.text-contenido {
+    font-family: 'Conamore Bold', sans-serif;
+    font-size: 4.5vh; /* Ajusta el tamaÃ±o de fuente */
+    color: #000000;
+    letter-spacing: 2px;
+    padding: 5vh ;
+    padding-left: 5vw;
+    display: flex;
+    justify-content: left; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+}
+.add-product-button{
+    padding-left: 40px;
+
+}
+.services-grid {
+    margin: 0 auto;
+    width: 70vw;
+    height: 75vh;
+    /*background-color: #BCBCBC;*/
+    border-radius: 10px;
+    /*box-shadow: 0px 0px 15px #000000;*/
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15%, 1fr));
+    grid-auto-rows: 40%;
+    padding: 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 35px;
+    grid-gap: 3.5vh;
+    overflow: auto;
+}
+.services-grid::-webkit-scrollbar{
+    width: 7px;
+    max-height: 1px;
+}
+
+.services-grid::-webkit-scrollbar-thumb{
+    background: #0D131A;
+    border-radius: 5px;
+}
+.quote-button {
+    width: 10vw;
+    height: 10vh;
+    border-radius: 10px;
+    flex-direction: row;
+}
+
+/* Administrar productos */
+.cajas {
+    width: 10vw;
+    height: 25vh;
+    display: grid;
+    background-color: #0D131A;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 15px #000000;
+    align-items: center; /* Centra horizontalmente los elementos */
+}
+
+.cajas-cotizacion {
+    width: 10vw;
+    height: 10vh;
+    display: grid;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 15px #0D131A;
+    align-items: center;
+}
+
+.image {
+    grid-row: 1;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    align-items: center; /* Ccntra verticalmente la imagen */
+    justify-content: center; /* Centra horizontalmente la imagen */
+}
+
+.image img {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 8vh;
+}
+
+.info {
+    grid-row: 2;
+    width: 8.5vw;
+    height: 10vh;
+    background-color: #BCBCBC;
+    border-radius: 10px;
+    margin: auto; /* Centra horizontalmente */
+    display: grid; /* Utiliza flexbox para centrar verticalmente */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+}
+
+.service-type-text {
+    font-family: 'Conamore Regular', sans-serif;
+    color: #0D131A;
+    font-size: 1.5vh;
+    text-align: center;
+}
+
+.add-product-button .admin-choice {
+    font-size: 1.7vh;
+    cursor: pointer;
+    background-color: #be1515;
+    color: white; 
+    border: none; 
+    border-radius: 5px;
+    height: 3.5vh;
+    text-align: center;
+    width: 10vw;
+}
+
+.price-add {
+    display: flex;
+    flex-direction: row; /* Alinea los elementos en fila */
+    justify-items: center;
+    padding-top: 0.5vh;
+}
+
+.price {
+    flex: 1;
+    padding-left: 1vw;
+    padding-top: 1.4vh;
+    font-family: 'Conamore Bold', sans-serif;
+    color: #0D131A;
+    font-size: 1.4vh;
+    
+}
+
+.add {
+    display: flex;
+    flex: 1;
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s ease;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.add img{
+    height: 2.9vh;
+}
+.add:hover {
+    transform: scale(1.05);
+}
+
+.quotation-total{
+    font-family: 'Conamore Bold', sans-serif;
+    font-size: 2.3vh;
+    display: block;
+}
+
+.quotation-date{
+    font-family: 'Conamore Regular', sans-serif;
+    font-size: 1.3vh;
+}

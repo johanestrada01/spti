@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotización</title>
+    <link rel="stylesheet" href="../static/css/brands.css">
+
+</head>
+<body>
+<div class="container">
+    <div class="centered">
+        <img src="https://topgearbogota.com/wp-content/uploads/2023/09/LogoTopGear.svg" alt="" width="" height="57" class="logo">
+        <div class="rectangle">
+            <div class="text"> Realiza tu Cotización</div>
+            <div class="botones">
+                <button class="stage active" id="brand">Marca</button>
+                <button class="stage" id="model">Modelo</button>
+                <button class="stage" id="year">Año</button>
+                <button class="stage" id="cylinder">Cilindraje</button>
+            </div>
+            <div class="rectangle-grid">
+                    <tbody>
+                        <tr th:each="brand : ${brands}">
+                            <td>
+                                <form th:action="@{'/models'}" method="post">
+                                    <input type="hidden" name="brand" id="brand" th:value="${brand}">
+                                    <button type="submit">
+                                        <img th:src="@{'../static/images/brands/' + ${brand.toLowerCase()} + '.png'}" th:alt="${brand}" >
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../static/js/brands.js"></script>
+</body>
+</html>

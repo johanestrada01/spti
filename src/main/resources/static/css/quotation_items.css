@@ -1,0 +1,583 @@
+
+/* Página Cotización */
+
+@font-face {
+    font-family: 'Conamore Regular';
+    src: url('../fonts/Conamore-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Conamore Bold';
+    src: url('../fonts/Conamore-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Conamore Semi Bold';
+    src: url('../fonts/Conamore-Semi-Bold.woff') format('woff');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* fondo */
+.allContainer{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: #292C33;
+}
+
+/* encabezado */
+.header {
+    width: 100vw;
+    height: 12vh;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: #0D131A;
+    display: flex; /* Use flexbox */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: space-between; /* Distribuir los elementos */
+    padding: 0 5%; /* Añadir un poco de espacio a los lados */
+}
+
+.logo {
+    height: 4vh;
+}
+
+
+/* carro seleccionado */
+.selectedBar {
+    width: 35%;
+    height: 20%;
+    background-color: transparent;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas de igual tamaño */
+    padding-right: 120px;
+}
+
+/* categorias del carro escogido */
+.selectedBar div {
+    font-family: 'Conamore Regular', sans-serif;
+    color: #FFCF28;
+    font-size: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #ccc; /* Borde derecho entre columnas */
+}
+
+/* quitar ultima barra vertical */
+.selectedBar div:last-child {
+    border-right: none;
+}
+
+/* fondo carrito de compras */
+.cart {
+    width: 3%;
+    height: 40%;
+    background-color: #292C33;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+
+}
+
+/* hace que el contenedor salga desde abajo :D */
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+@keyframes slideOutToBottom {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(100%);
+    }
+}
+
+.cart-content {
+    display: none; 
+    flex-direction: column;
+    background-color: #BCBCBC;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 15px rgb(5, 7, 9); 
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    height: 95vh;
+    width: 20vw;
+    z-index: 1;
+    right: 20px; 
+    bottom: 20px; 
+    position: fixed;
+}
+
+
+.cart-content.show {
+    display: flex;
+    animation: slideInFromBottom 0.5s ease forwards;
+    opacity: 1;
+}
+.cart-content.hide {
+    animation: slideOutToBottom 0.5s ease forwards; /* Aplica la animación al cerrar el contenedor */
+}
+
+.cart:focus {
+    border-color: #ccb118; 
+    box-shadow: 0px 0px 15px #ccb11894;
+}
+
+/*carrito por dentro*/
+
+.header-cart {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: space-between; /* Distribuye los elementos horizontalmente */
+    border-bottom: 1px solid black;
+    height: 5vh;
+}
+
+#close-button {
+    background-color: transparent;
+    border: none;
+    padding-left: 5px;
+    padding-top: 5px;
+    cursor: pointer;
+    height: 4vh;
+}
+
+#close-button img {
+    height: 2vh;
+}
+
+#main-text-cart {
+    font-family: 'Conamore Semi Bold', sans-serif;
+    font-size: 2.5vh;
+    margin: 0 auto;
+}
+
+.info-cart{
+    height:85vh;
+}
+.services-items{
+    height: auto;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+}
+
+.items{
+    height: 17vh;
+}
+
+#services-text{
+    font-family: 'Conamore Semi Bold', sans-serif;
+    padding: 10px;
+    padding-left: 20px;
+    font-size: 1.5vh;
+    letter-spacing: 1px;
+}
+
+.item{
+    display: grid;
+    width: (20vw-1);
+    height: 6vh;
+    place-items: center;
+}
+
+.item-icon{
+    display: flex;
+    grid-column: 1;
+    background-color: #0D131A;
+    height: 5vh;
+    width: 2.5vw;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+}
+.item-icon img{
+    height: 3.5vh;
+}
+
+.item-description{
+    grid-column: 2;
+    width: 140px;
+    height: 50px;
+    font-family: 'Conamore Regular', sans-serif;
+    font-size: 1.4vh;
+    align-content: center;
+    padding-left: 0.3vw;
+    padding-right: 0.3vw;
+
+}
+
+.item-price{
+    grid-column: 3;
+    min-width: 45px;
+    min-height: 50px;
+    font-family: 'Conamore Semi Bold', sans-serif;
+    font-size: 1.4vh;
+    align-content: center;
+    padding-right: 0.3vw;
+}
+
+#deleteForm {
+    grid-column: 4;
+    display: flex;
+}
+.item-delete {
+    background-color: #922525;
+    height: 30px;
+    width: 1.4vw;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+    border:none;
+}
+
+.item-delete img{
+    height: 2vh;
+    width: auto;
+    cursor: pointer;
+}
+.item-delete:focus,
+.item-delete:active {
+    transform: scale(1.02);
+    cursor: pointer;
+
+}
+.subtotal{
+    display: grid;
+    height: 6vh;
+    border-bottom: 1px solid black;
+    align-items: center;
+}
+
+#subtotal-text{
+    grid-column: 1;
+    font-family: 'Conamore Semi Bold', 'sans-serif';
+    font-size: 1.5vh;
+    letter-spacing: 1px;
+    padding-left: 25px;
+}
+
+#subtotal-items{
+    grid-column: 2;
+    font-family: 'Conamore Semi Bold', 'sans-serif';
+    font-size: 1.5vh;
+    justify-self: center;
+    padding-right: 20px;
+}
+
+.taxes{
+    height: 9vh;
+    border-bottom: 1px solid black;
+    padding: 5px;
+
+}
+
+#taxes-text{
+    grid-column: 1;
+    font-family: 'Conamore Semi Bold', 'sans-serif';
+    padding: 10px;
+    padding-left: 20px;
+    font-size: 1.5vh;
+    letter-spacing: 1px;
+}
+
+#taxes-grid{
+    display: grid;
+    height: 3vh;
+    padding: 5px;
+    padding-left: 20px;
+}
+
+#tax{
+    grid-column: 1;
+    font-family: 'Conamore Semi Bold', 'sans-serif';
+    font-size: 1.5vh;
+}
+#tax-per-item{
+    grid-column: 2;
+    font-family: 'Conamore Semi Bold', 'sans-serif';
+    font-size: 1.5vh;
+    justify-self: center;
+}
+
+.total{
+    height: 6vh;
+    display: grid;
+    padding: 15px;
+    padding-left: 20px;
+}
+
+#total-text{
+    grid-column: 1;
+    font-family: 'Conamore Semi Bold', 'sans-serif';
+    font-size: 1.5vh;
+}
+
+#total-count{
+    grid-column: 2;
+    font-family: 'Conamore Semi Bold', 'sans-serif';
+    font-size: 1.5vh;
+    justify-self: center;
+}
+
+#finish {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8vh; /* Asegúrate de que el contenedor tenga una altura definida */
+    cursor: pointer;
+
+    
+}
+
+/* BOTON CONTINUAR */
+#finish-button {
+    align-self: flex-end; /* Alinear el botón en la parte inferior del contenedor */
+    width: 10vw;
+    height: 4vh;
+    border-radius: 8px;
+    color: #FFFFFF;
+    background-color: #0D131A;
+    box-shadow: 0px 0px 8px #0D131A;
+    font-family: 'Conamore Regular', 'sans-serif';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+    font-size: 1.3vh;
+    cursor: pointer;
+}
+
+/* Fin carrito ------------------------ */
+
+.search {
+    position: relative; 
+    width: 35%;
+    height: 4%;
+    background-color: #69727D;
+    border-radius: 20px;
+    margin: 30px auto; /* margen superior e inferior y centrado horizontal */
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 15px #0D131A;
+}
+
+.search input {
+    font-family: 'Conamore Regular', sans-serif;
+    color: #E3E6EC;
+    width: calc(100% - 40px);
+    height: 100%;
+    border: none;
+    background: transparent;
+    font-size: 17px;
+    padding: 7px 40px 7px 20px;
+}
+
+/* icono de busqueda */
+.search img {
+    left: 10px;
+    width: 20px;
+    height: auto; /* para mantener la proporción de la imagen */
+}
+
+/* elimina el contorno por defecto */
+.search input:focus {
+    outline: none; 
+}
+
+.content {
+    display: flex;
+    padding: 10px;
+    height: calc(100% - 25% - 12vh);
+}
+
+.categories-box {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    flex: 1; 
+    margin-right: 10px;
+}
+
+.title {
+    font-family: 'Conamore Regular', sans-serif;
+    color:#FFCF28;
+    font-size: 2.3vh;
+    letter-spacing: 1px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.categories {
+    width: 18vw;
+    height: 35vh;
+    background-color: #0D131A;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px #0D131A;
+    border: 1px solid #b0c0d150;
+    display: flex;
+    flex-direction: column; /* Alinear los divs verticalmente uno debajo del otro */
+    justify-content: space-evenly;
+}
+
+/* categorias del carro escogido */
+.categories button {
+    font-family: 'Conamore Regular', sans-serif;
+    color: #FFFFFF;
+    font-size: 1.8vh;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: auto;
+    background-color: transparent;
+    border: 2px solid transparent; /* Establece un borde transparente por defecto */
+    transition: border-color 0.3s ease; /* Aplica una transición suave al cambio de color del borde */
+    padding: 7px 20px 7px 20px; /* Añadir padding horizontal de 20px y vertical de 7px */
+    cursor: pointer;
+    text-align: left;
+}
+
+.categories button.active{
+    border-color: red; /* Cambia el color del borde a rojo cuando el botón está seleccionado */
+    box-shadow: 0px 0px 15px #d80d0d62;
+}
+
+.categories button:focus {
+    border-color: red; /* Cambia el color del borde a rojo cuando el botón está seleccionado */
+    box-shadow: 0px 0px 15px #d80d0d62;
+}
+
+.services-box {
+    flex: 2;
+    /*align-items: center;
+    justify-content: center; /* centrar horizontalmente el contenido */
+    display: flex; 
+}
+
+.services-grid{
+    width: 60vw;
+    height: 70vh;
+    background-color: #BCBCBC;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px #000000;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15%, 1fr));
+    grid-auto-rows: 40%;
+    padding: 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 35px;
+    grid-gap: 3.5vh; /* espacio vertical y horizontal entre elementos*/
+    overflow: auto;
+}
+.services-grid::-webkit-scrollbar{
+    width: 7px;
+}
+
+.services-grid::-webkit-scrollbar-thumb{
+    background: #69727d;
+    border-radius: 10px;
+}
+.cajas {
+    width: 10vw;
+    height: 25vh;
+    display: grid;
+    background-color: #0D131A;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 15px #000000;
+    align-items: center; /* Centra horizontalmente los elementos */
+}
+
+.image {
+    grid-row: 1;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    align-items: center; /* Ccntra verticalmente la imagen */
+    justify-content: center; /* Centra horizontalmente la imagen */
+}
+
+.image img {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 8vh;
+}
+
+.info {
+    grid-row: 2;
+    width: 8.5vw;
+    height: 10vh;
+    background-color: #BCBCBC;
+    border-radius: 10px;
+    margin: auto; /* Centra horizontalmente */
+    display: grid; /* Utiliza flexbox para centrar verticalmente */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+}
+
+
+.service-type-text {
+    font-family: 'Conamore Regular', sans-serif;
+    color: #0D131A;
+    font-size: 1.5vh;
+    text-align: center;
+}
+
+.price-add {
+    display: flex;
+    flex-direction: row; /* Alinea los elementos en fila */
+    justify-items: center;
+    padding-top: 0.5vh;
+}
+
+.price {
+    flex: 1;
+    padding-left: 1vw;
+    padding-top: 1.4vh;
+    font-family: 'Conamore Bold', sans-serif;
+    color: #0D131A;
+    font-size: 1.4vh;
+    
+}
+
+.add {
+    display: flex;
+    flex: 1;
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s ease;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.add img{
+    height: 2.9vh;
+}
+.add:hover {
+    transform: scale(1.05);
+}
+
