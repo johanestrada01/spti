@@ -114,8 +114,15 @@ class ItemServiceTest {
 
     @Test
     void shouldNotUpdateAnItem(){
+	Item item;
+    try{
+	item = new Item("name", "shortDescription", "image", "technical", 10.0, 10.0, 10.0, true, 10.0, category);	
+    }
+    catch(ModelException e){
+	fail();
+    }
     try {
-        itemService.updateItem(new Item("name", "shortDescription", "image", "technical", 10.0, 10.0, 10.0, true, 10.0, category));
+        itemService.updateItem(item);
         fail("Expected a ServiceException to be thrown.");
     	} catch (ModelException | ServiceException | NullPointerException e) {
         	assertTrue(true);
