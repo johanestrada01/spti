@@ -45,10 +45,6 @@ body {
     padding: 0 5%;
 }
 
-.logo {
-    height: 4vh;
-}
-
 /* Selected Bar */
 .selectedBar {
     width: 35%;
@@ -110,15 +106,6 @@ label {
     font-size: 1.5vw;
     display: block;
     margin-bottom: 5px;
-    color: #ffffff;
-    text-align: center;
-}
-
-sublabel {
-    font-family: 'Conamore Bold', sans-serif;
-    font-size: 0.8vw;
-    display: block;
-    margin-bottom: 15px;
     color: #ffffff;
     text-align: center;
 }
