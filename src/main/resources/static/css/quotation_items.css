@@ -191,7 +191,7 @@
 
 .item{
     display: grid;
-    width: (20vw-1);
+    width: (20vw - 1);
     height: 6vh;
     place-items: center;
 }
