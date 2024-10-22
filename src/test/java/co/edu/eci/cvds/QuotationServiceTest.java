@@ -396,24 +396,25 @@ void shouldNotAddItemById() {
         }
     }
 
-    @Test
-    void shouldNotDeleteItemById(){
-        Category category = new Category("category");
-        categoryService.addCategory(category);
-        try{
-            Item item = new Item("name", "shortDescription", "image", "technical", 125000.0, 10.0, 100.0, true, 19.0, category);
-            itemService.addItem(item);
-            quotationService.addItem(0, item);
-            quotationService.deleteItem(0, item);
-            fail();
-        }
-        catch (ModelException modelException){
-            fail();
-        }
-        catch(ServiceException serviceException){
-            assertEquals(ServiceException.nonExistentQuotation, serviceException.getMessage());
-        }
+   @Test
+void shouldNotDeleteItemById() {
+    Category category = new Category("category");
+    categoryService.addCategory(category);
+
+    Item item = new Item("name", "shortDescription", "image", "technical", 125000.0, 10.0, 100.0, true, 19.0, category);
+    itemService.addItem(item);
+    quotationService.addItem(0, item);
+
+    try {
+        quotationService.deleteItem(0, item);
+        fail("Expected a ServiceException to be thrown.");
+    } catch (ServiceException serviceException) {
+        assertEquals(ServiceException.nonExistentQuotation, serviceException.getMessage());
+    } catch (ModelException modelException) {
+        fail("Unexpected ModelException was thrown: " + modelException.getMessage());
     }
+}
+
 
     @AfterEach
     public void deleteValues(){
