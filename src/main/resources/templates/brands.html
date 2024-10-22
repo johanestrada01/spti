@@ -20,18 +20,16 @@
                 <button class="stage" id="cylinder">Cilindraje</button>
             </div>
             <div class="rectangle-grid">
-                    <tbody>
-                        <tr th:each="brand : ${brands}">
-                            <td>
-                                <form th:action="@{'/models'}" method="post">
-                                    <input type="hidden" name="brand" id="brand" th:value="${brand}">
-                                    <button type="submit">
-                                        <img th:src="@{'../static/images/brands/' + ${brand.toLowerCase()} + '.png'}" th:alt="${brand}" >
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tr th:each="brand : ${brands}">
+                        <td>
+                            <form th:action="@{'/models'}" method="post">
+                                <input type="hidden" name="brand" id="brand" th:value="${brand}">
+                                <button type="submit">
+                                    <img th:src="@{'../static/images/brands/' + ${brand.toLowerCase()} + '.png'}" th:alt="${brand}" >
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
             </div>
         </div>
     </div>
