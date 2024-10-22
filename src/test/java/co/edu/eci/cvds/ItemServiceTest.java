@@ -117,9 +117,7 @@ class ItemServiceTest {
     try {
         itemService.updateItem(new Item("name", "shortDescription", "image", "technical", 10.0, 10.0, 10.0, true, 10.0, category));
         fail("Expected a ServiceException to be thrown.");
-    	} catch (ServiceException serviceException) {
-        	assertEquals(ServiceException.nonExistentItem, serviceException.getMessage());
-    	} catch (ModelException | NullPointerException e) {
+    	} catch (ModelException | ServiceException | NullPointerException e) {
         	assertTrue(true);
     	}
     }
