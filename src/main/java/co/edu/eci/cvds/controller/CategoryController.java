@@ -55,11 +55,11 @@ public class CategoryController {
 
     
     @PostMapping("/updateCategory")
-    public void updateCategory(@RequestBody Category category){
+    public void updateCategory(@RequestBody Category category) throws ControllerException {
         try {
             categoryService.updateCategory(category);
         } catch (ServiceException e) {
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
     }
 
@@ -69,11 +69,11 @@ public class CategoryController {
     }
 
     @PostMapping("/deleteCategoryById/{id}")
-    public void deleteCategoryById(@PathVariable int id){
+    public void deleteCategoryById(@PathVariable int id) throws ControllerException {
         try {
             categoryService.deleteCategory(id);
         } catch (ServiceException e) {
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
     }
     

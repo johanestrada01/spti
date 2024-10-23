@@ -1,5 +1,6 @@
 package co.edu.eci.cvds.controller;
 
+import co.edu.eci.cvds.exceptions.ControllerException;
 import co.edu.eci.cvds.exceptions.ServiceException;
 import co.edu.eci.cvds.model.*;
 import co.edu.eci.cvds.service.QuotationService;
@@ -36,7 +37,7 @@ public class QuotationController {
     @GetMapping("/getQuotation")
     public String getQuotation(@ModelAttribute("vehicle") Vehicle vehicle, @ModelAttribute("categoryId") Integer categoryId,
                              @ModelAttribute("quotation") Quotation quotation, @ModelAttribute("categories") List<Category> categories,
-                             Model model, RedirectAttributes redirectAttributes){
+                             Model model, RedirectAttributes redirectAttributes) throws ControllerException {
         try {
             redirectAttributes.addFlashAttribute("vehicle", vehicle);
             redirectAttributes.addFlashAttribute("categoryId", categoryId);
@@ -44,7 +45,7 @@ public class QuotationController {
             redirectAttributes.addFlashAttribute("quotation", quotationService.getQuotation(quotation.getQuotationId()));
             return "redirect:/item/";
         } catch (ServiceException e) {
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
     }
 
@@ -54,12 +55,12 @@ public class QuotationController {
     }
 
     @PostMapping("/updateQuotation")
-    public void updateQuotation(@RequestBody Quotation quotation, Model model){
+    public void updateQuotation(@RequestBody Quotation quotation, Model model) throws ControllerException {
         try {
             quotationService.updateQuotation(quotation);
             model.addAttribute("quotation", quotation);
         } catch (ServiceException e) {
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
     }
 
@@ -69,11 +70,11 @@ public class QuotationController {
     }
 
     @PostMapping("/deleteQuotationById/{id}")
-    public void deleteQuotation(@PathVariable int id){
+    public void deleteQuotation(@PathVariable int id) throws ControllerException {
         try {
             quotationService.deleteQuotation(id);
         } catch (ServiceException e) {
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
     }
 
@@ -85,7 +86,7 @@ public class QuotationController {
     @GetMapping("/getTotalById")
     public String calculateTotalById(@ModelAttribute("quotation") Quotation quotation, @ModelAttribute("vehicle") Vehicle vehicle,
                                    @ModelAttribute("categoryId") Integer categoryId, @ModelAttribute("item") Item item, Model model,
-                                   RedirectAttributes redirectAttributes){
+                                   RedirectAttributes redirectAttributes) throws ControllerException {
         try {
             redirectAttributes.addFlashAttribute("vehicle", vehicle);
             redirectAttributes.addFlashAttribute("item", item);
@@ -95,7 +96,7 @@ public class QuotationController {
             redirectAttributes.addFlashAttribute("quotation", quotationService.getQuotation(quotation.getQuotationId()));
             return "redirect:/category/getAllCategories";
         } catch (ServiceException e) {
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
     }
 
@@ -107,7 +108,7 @@ public class QuotationController {
     @GetMapping("/getSubTotalById")
     public String calculateSubTotalById(@ModelAttribute("quotation") Quotation quotation, @ModelAttribute("vehicle") Vehicle vehicle,
                                         @ModelAttribute("categoryId") Integer categoryId, @ModelAttribute("item") Item item, Model model,
-                                      RedirectAttributes redirectAttributes){
+                                      RedirectAttributes redirectAttributes) throws ControllerException {
         try {
             redirectAttributes.addFlashAttribute("vehicle", vehicle);
             redirectAttributes.addFlashAttribute("item", item);
@@ -117,7 +118,7 @@ public class QuotationController {
             redirectAttributes.addFlashAttribute("quotation", quotationService.getQuotation(quotation.getQuotationId()));
             return "redirect:/quotation/getTotalById";
         } catch (ServiceException e) {
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
     }
 
@@ -130,7 +131,7 @@ public class QuotationController {
     @GetMapping("/updateStatusById")
     public String updateStatusById(@ModelAttribute("quotation") Quotation quotation, @ModelAttribute("vehicle") Vehicle vehicle,
                                    @ModelAttribute("item") Item item, @ModelAttribute("categoryId") String categoryId,
-                                   Model model, RedirectAttributes redirectAttributes){
+                                   Model model, RedirectAttributes redirectAttributes) throws ControllerException {
         try {
             quotationService.updateStatus(quotation.getQuotationId(), "EN_PROCESO");
             redirectAttributes.addFlashAttribute("quotation", quotationService.getQuotation(quotation.getQuotationId()));
@@ -140,14 +141,14 @@ public class QuotationController {
             redirectAttributes.addFlashAttribute("categoryId", newCategoryId);
             return "redirect:/quotation/addItemById";
         } catch (ServiceException e) {
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
     }
 
     @GetMapping("/getQuotationValues")
     public String getQuotationValues(@ModelAttribute("quotation") Quotation quotation, @ModelAttribute("vehicle") Vehicle vehicle,
                                      @ModelAttribute("item") Item item, @ModelAttribute("categoryId") String categoryId,
-                                     Model model, RedirectAttributes redirectAttributes){
+                                     Model model, RedirectAttributes redirectAttributes) throws ControllerException {
         try {
             redirectAttributes.addFlashAttribute("vehicle", vehicle);
             redirectAttributes.addFlashAttribute("item", item);
@@ -159,7 +160,7 @@ public class QuotationController {
             redirectAttributes.addFlashAttribute("quotation", quotationService.getQuotation(quotation.getQuotationId()));
             return "redirect:/category/getAllCategories";
         } catch (ServiceException e) {
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
     }
 
@@ -172,7 +173,7 @@ public class QuotationController {
     @GetMapping("/addItemById")
     public String addItemById(@ModelAttribute("quotation") Quotation quotation, @ModelAttribute("vehicle") Vehicle vehicle,
                             @ModelAttribute("categoryId") Integer categoryId, @ModelAttribute("item") Item item, Model model,
-                            RedirectAttributes redirectAttributes){
+                            RedirectAttributes redirectAttributes) throws ControllerException {
         try {
             quotationService.addItem(quotation.getQuotationId(), item);
             redirectAttributes.addFlashAttribute("quotation", quotationService.getQuotation(quotation.getQuotationId()));
@@ -181,7 +182,7 @@ public class QuotationController {
             redirectAttributes.addFlashAttribute("categoryId", categoryId);
             return "redirect:/quotation/getQuotationValues";
         } catch (ServiceException e) {
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
     }
 
@@ -194,7 +195,7 @@ public class QuotationController {
     @GetMapping("/deleteItemById")
     public String deleteItemById(@ModelAttribute("quotation") Quotation quotation, @ModelAttribute("vehicle") Vehicle vehicle,
                                  @ModelAttribute("item") Item item, @ModelAttribute("categoryId") String categoryId, Model model,
-                                 RedirectAttributes redirectAttributes){
+                                 RedirectAttributes redirectAttributes) throws ControllerException {
         try {
             quotationService.deleteItem(quotation.getQuotationId(), item);
             redirectAttributes.addFlashAttribute("quotation", quotationService.getQuotation(quotation.getQuotationId()));
@@ -204,7 +205,7 @@ public class QuotationController {
             redirectAttributes.addFlashAttribute("categoryId", newCategoryId);
             return "redirect:/quotation/getQuotationValues";
         } catch (ServiceException e) {
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
     }
 

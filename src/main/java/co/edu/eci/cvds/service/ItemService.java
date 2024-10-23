@@ -109,12 +109,12 @@ public class ItemService {
         itemRepository.save(item);
     }
 
-    public void addVehicle(Item item, Vehicle vehicle){
+    public void addVehicle(Item item, Vehicle vehicle) throws ServiceException {
         item.addVehicle(vehicle);
         try {
             updateItem(item);
         } catch (ServiceException e) {
-            throw new RuntimeException(e);
+            throw new ServiceException(ServiceException.nonExistentVehicle);
         }
     }
 

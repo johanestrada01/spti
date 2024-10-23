@@ -1,6 +1,7 @@
 package co.edu.eci.cvds.controller;
 
 
+import co.edu.eci.cvds.exceptions.ControllerException;
 import co.edu.eci.cvds.exceptions.ServiceException;
 import co.edu.eci.cvds.model.Category;
 import co.edu.eci.cvds.model.Item;
@@ -45,7 +46,7 @@ public class ItemController {
 
     @GetMapping("/getItem/")
     public String getItem(@ModelAttribute("quotation") Quotation quotation, @ModelAttribute("vehicle") Vehicle vehicle,
-                        @ModelAttribute("items") List<Integer> items, Model model) {
+                        @ModelAttribute("items") List<Integer> items, Model model) throws ControllerException {
         try {
             ArrayList<Item> newItems = new ArrayList<>();
             for(Integer i : items){
@@ -56,7 +57,7 @@ public class ItemController {
             model.addAttribute("items", newItems);
             return "imprimir";
         } catch (ServiceException e) {
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
     }
 
@@ -94,11 +95,11 @@ public class ItemController {
     }
 
     @PostMapping("/updateItem")
-    public String updateItem(@ModelAttribute Item item){
+    public String updateItem(@ModelAttribute Item item) throws ControllerException {
         try {
             itemService.updateItem(item);
         } catch (ServiceException e) {
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
         if (!LoginController.isLogin()){
             return "redirect:/login/test";
@@ -112,11 +113,11 @@ public class ItemController {
     }
 
     @PostMapping("/deleteItemById")
-    public String deleteItemById(@RequestParam(name="itemId") int id){
+    public String deleteItemById(@RequestParam(name="itemId") int id) throws ControllerException {
         try {
             itemService.deleteItem(id);
         } catch (ServiceException e) {
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
         return "admin_items";
     }
@@ -127,11 +128,11 @@ public class ItemController {
     }
 
     @GetMapping("/getSubTotalById/{id}")
-    public void getSubtotalById(@PathVariable int id, Model model){
+    public void getSubtotalById(@PathVariable int id, Model model) throws ControllerException {
         try {
             model.addAttribute("subTotal", itemService.calculateSubtotal(id));
         } catch (ServiceException e) {
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
     }
 
@@ -141,11 +142,11 @@ public class ItemController {
     }
 
     @GetMapping("/getTotalById/{id}")
-    public void getTotalById(@PathVariable int id, Model model){
+    public void getTotalById(@PathVariable int id, Model model) throws ControllerException {
         try {
             model.addAttribute("total", itemService.calculateTotal(id));
         } catch (ServiceException e) {
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
     }
 
@@ -155,11 +156,11 @@ public class ItemController {
     }
 
     @PostMapping("/addCategoryById/{id}")
-    public void addCategoryById(@PathVariable int id, @RequestBody Category category){
+    public void addCategoryById(@PathVariable int id, @RequestBody Category category) throws ControllerException {
         try {
             itemService.addCategory(id, category);
         } catch (ServiceException e) {
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
     }
     

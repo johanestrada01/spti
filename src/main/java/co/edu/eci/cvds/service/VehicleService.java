@@ -75,12 +75,12 @@ public class VehicleService {
         deleteVehicle(vehicle);
     }
 
-    public void addItem(Vehicle vehicle, Item item){
+    public void addItem(Vehicle vehicle, Item item) throws ServiceException {
         vehicle.addItem(item);
         try {
             updateVehicle(vehicle);
         } catch (ServiceException e) {
-            throw new RuntimeException(e);
+            throw new ServiceException(ServiceException.nonExistentItem);
         }
     }
 

@@ -1,6 +1,7 @@
 package co.edu.eci.cvds.controller;
 
 
+import co.edu.eci.cvds.exceptions.ControllerException;
 import co.edu.eci.cvds.exceptions.ServiceException;
 import co.edu.eci.cvds.model.Vehicle;
 import co.edu.eci.cvds.service.VehicleService;
@@ -78,26 +79,26 @@ public class VehicleController {
     }
 
     @GetMapping("/getVehicleById/{id}")
-    public String getVehicleById(@PathVariable int id, Model model){
+    public String getVehicleById(@PathVariable int id, Model model) throws ControllerException {
         try{
             Vehicle vehicle = vehicleService.getVehicle(id);
             model.addAttribute("vehicle", vehicle);
             return "/";
         }
         catch(ServiceException serviceException){
-            throw new RuntimeException(serviceException);
+            throw new ControllerException("Bad Request");
         }
     }
 
     @PostMapping("/updateVehicle")
-    public String updateVehicle(@RequestBody Vehicle vehicle, Model model){
+    public String updateVehicle(@RequestBody Vehicle vehicle, Model model) throws ControllerException {
         try{
             vehicleService.updateVehicle(vehicle);
             model.addAttribute("vehicle", vehicle);
             return "/";
         }
         catch(ServiceException serviceException){
-            throw new RuntimeException(serviceException);
+            throw new ControllerException("Bad Request");
         }
     }
 
@@ -108,13 +109,13 @@ public class VehicleController {
     }
 
     @PostMapping("/deleteVehicle/{id}")
-    public String deleteVehicleById(@PathVariable int id){
+    public String deleteVehicleById(@PathVariable int id) throws ControllerException {
         try{
             vehicleService.deleteVehicle(id);
             return "/";
         }
         catch(ServiceException serviceException){
-            throw new RuntimeException(serviceException);
+            throw new ControllerException("Bad Request");
         }
     }
 }

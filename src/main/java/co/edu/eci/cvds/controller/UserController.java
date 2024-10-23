@@ -1,5 +1,6 @@
 package co.edu.eci.cvds.controller;
 
+import co.edu.eci.cvds.exceptions.ControllerException;
 import co.edu.eci.cvds.exceptions.UserException;
 import co.edu.eci.cvds.model.User;
 import co.edu.eci.cvds.service.UserService;
@@ -23,20 +24,20 @@ public class UserController {
     }
 
     @PostMapping("/update")
-    public void updateUser(@RequestBody User user){
+    public void updateUser(@RequestBody User user) throws ControllerException {
         try {
             userService.updateUser(user);
         } catch (UserException e) {
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
     }
 
     @GetMapping("/getUser")
-    public void getUSer(int id, Model model){
+    public void getUSer(int id, Model model) throws ControllerException {
         try {
             model.addAttribute(userService.getUser(id));
         } catch (UserException e) {
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
     }
 
