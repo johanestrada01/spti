@@ -3,13 +3,12 @@ package co.edu.eci.cvds.controller;
 import co.edu.eci.cvds.model.Configuration;
 import co.edu.eci.cvds.service.ConfigurationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping(value = "/configuration")
 public class ConfigurationController {
 
@@ -32,13 +31,11 @@ public class ConfigurationController {
     }
 
     @GetMapping("/example/api/configurations")
-    @ResponseBody
     public List<Configuration> exampleApiConfigurations() {
         return configurationService.getAllConfigurations();
     }
 
     @PostMapping("/example/api/configurations")
-    @ResponseBody
     public List<Configuration> exampleApiConfigurations(@RequestBody Configuration configuration) {
         configurationService.addConfiguration(configuration);
         return configurationService.getAllConfigurations();

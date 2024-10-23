@@ -29,7 +29,7 @@ public class ConfigurationService {
     }
 
     public Configuration updateConfiguration(Configuration configuration) {
-        if (configurationRepository.findByPropiedad(configuration.getPropiedad()).size() == 0) {
+        if (configurationRepository.findByPropiedad(configuration.getPropiedad()).isEmpty()) {
             return configurationRepository.save(configuration);
         }
 

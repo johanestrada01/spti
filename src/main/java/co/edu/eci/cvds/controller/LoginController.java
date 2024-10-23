@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class LoginController {
 
     private static final Logger log = LoggerFactory.getLogger(LoginController.class);
-    public static boolean login = false;
-    private static final String loginOficial = "login_oficial";
+    public static boolean login;
+    private static final String LOGIN_OFICIAL = "login_oficial";
 
     @Autowired
     UserService userService;
@@ -30,7 +30,7 @@ public class LoginController {
 
     @GetMapping("/test")
     public String loginTest() {
-        return loginOficial;
+        return LOGIN_OFICIAL;
     }
 
     @PostMapping("/correct")
@@ -39,13 +39,13 @@ public class LoginController {
         if(login) {
             return "redirect:/user/getQuotation";
         }
-        return loginOficial;
+        return LOGIN_OFICIAL;
     }
 
     @GetMapping("/correct")
     public String loginNoCorrect(){
         login = false;
-        return loginOficial;
+        return LOGIN_OFICIAL;
     }
 
 

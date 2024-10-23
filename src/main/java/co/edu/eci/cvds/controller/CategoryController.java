@@ -18,7 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class CategoryController {
 
     private final CategoryService categoryService;
-    private static final String badRequest = "Bad Request";
+    private static final String BAD_REQUEST = "Bad Request";
 
     @Autowired
     public CategoryController(CategoryService categoryService){
@@ -50,7 +50,7 @@ public class CategoryController {
             model.addAttribute("category", categoryService.getCategory(id));
         }
         catch (ServiceException e){
-            throw new ControllerException(badRequest);
+            throw new ControllerException(BAD_REQUEST);
         }
     }
 
@@ -60,7 +60,7 @@ public class CategoryController {
         try {
             categoryService.updateCategory(category);
         } catch (ServiceException e) {
-            throw new ControllerException(badRequest);
+            throw new ControllerException(BAD_REQUEST);
         }
     }
 
@@ -74,7 +74,7 @@ public class CategoryController {
         try {
             categoryService.deleteCategory(id);
         } catch (ServiceException e) {
-            throw new ControllerException(badRequest);
+            throw new ControllerException(BAD_REQUEST);
         }
     }
     
