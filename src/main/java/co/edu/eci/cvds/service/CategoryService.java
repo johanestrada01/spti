@@ -2,7 +2,6 @@ package co.edu.eci.cvds.service;
 
 import co.edu.eci.cvds.exceptions.ServiceException;
 import co.edu.eci.cvds.model.Category;
-import co.edu.eci.cvds.model.Vehicle;
 import co.edu.eci.cvds.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

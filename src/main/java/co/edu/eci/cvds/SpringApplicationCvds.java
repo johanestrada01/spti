@@ -7,19 +7,13 @@ import co.edu.eci.cvds.repository.ItemRepository;
 import co.edu.eci.cvds.repository.QuotationRepository;
 import co.edu.eci.cvds.repository.UserRepository;
 import co.edu.eci.cvds.service.ConfigurationService;
-import co.edu.eci.cvds.service.ItemService;
 import lombok.extern.slf4j.Slf4j;
-import org.antlr.v4.runtime.misc.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 @SpringBootApplication
 @Slf4j
