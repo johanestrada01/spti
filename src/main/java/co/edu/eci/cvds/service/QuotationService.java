@@ -28,7 +28,7 @@ public class        QuotationService {
     public Quotation getQuotation(int id) throws ServiceException{
         Optional<Quotation> result = quotationRepository.findById(id);
         if(result.isEmpty()){
-            throw new ServiceException(ServiceException.nonExistentQuotation);
+            throw new ServiceException(ServiceException.NON_EXISTENT_QUOTATION);
         }
         return result.get();
     }

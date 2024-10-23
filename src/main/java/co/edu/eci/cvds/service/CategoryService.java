@@ -26,7 +26,7 @@ public class CategoryService {
     public Category getCategory(int id) throws ServiceException {
         Optional<Category> result = categoryRepository.findById(id);
         if(result.isEmpty()){
-            throw new ServiceException(ServiceException.nonExistentCategory);
+            throw new ServiceException(ServiceException.NON_EXISTENT_CATEGORY);
         }
         return result.get();
     }

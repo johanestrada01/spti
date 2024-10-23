@@ -43,7 +43,7 @@ public class VehicleService {
     public Vehicle getVehicle(int id) throws ServiceException {
         Optional<Vehicle> result = vehicleRepository.findById(id);
         if(result.isEmpty()){
-            throw new ServiceException(ServiceException.nonExistentVehicle);
+            throw new ServiceException(ServiceException.NON_EXISTENT_VEHICLE);
         }
         return result.get();
     }
@@ -80,7 +80,7 @@ public class VehicleService {
         try {
             updateVehicle(vehicle);
         } catch (ServiceException e) {
-            throw new ServiceException(ServiceException.nonExistentItem);
+            throw new ServiceException(ServiceException.NON_EXISTENT_ITEM);
         }
     }
 

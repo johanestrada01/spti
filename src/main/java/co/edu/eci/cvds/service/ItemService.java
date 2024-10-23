@@ -28,7 +28,7 @@ public class ItemService {
     public Item getItem(int id) throws ServiceException{
         Optional<Item> result = itemRepository.findById(id);
         if(result.isEmpty()){
-            throw new ServiceException(ServiceException.nonExistentItem);
+            throw new ServiceException(ServiceException.NON_EXISTENT_ITEM);
         }
         return result.get();
     }
@@ -114,7 +114,7 @@ public class ItemService {
         try {
             updateItem(item);
         } catch (ServiceException e) {
-            throw new ServiceException(ServiceException.nonExistentVehicle);
+            throw new ServiceException(ServiceException.NON_EXISTENT_VEHICLE);
         }
     }
 

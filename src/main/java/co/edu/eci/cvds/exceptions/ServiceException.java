@@ -2,10 +2,10 @@ package co.edu.eci.cvds.exceptions;
 
 public class ServiceException extends Exception{
 
-    public final static String nonExistentCategory = "The category does not exist";
-    public final static String nonExistentItem = "The item does not exist";
-    public final static String nonExistentQuotation = "The quotation does not exist";
-    public final static String nonExistentVehicle = "The vehicle does not exist";
+    public static final String NON_EXISTENT_CATEGORY = "The category does not exist";
+    public static final String NON_EXISTENT_ITEM = "The item does not exist";
+    public static final String NON_EXISTENT_QUOTATION = "The quotation does not exist";
+    public static final String NON_EXISTENT_VEHICLE = "The vehicle does not exist";
 
     public ServiceException(String message){
         super(message);
