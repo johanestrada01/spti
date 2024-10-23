@@ -13,7 +13,7 @@
         
         <div class="header">
             <div class="logo2">
-                <img src="https://topgearbogota.com/wp-content/uploads/2023/09/LogoTopGear.svg" class="logo">
+                <img src="https://topgearbogota.com/wp-content/uploads/2023/09/LogoTopGear.svg" alt="" class="logo">
             </div>
             <div class="selectedBar">
                 <div class="brand" th:text="${vehicle.getBrand()}"></div>
@@ -64,7 +64,7 @@
                 <div class="services-grid">
                     <div class="cajas" th:each="item : ${items}">
                         <div class="image">
-                            <img th:id="'img-' + ${item.getName()}" data-category="${category.name}" alt="Imagen de servicio">
+                            <img th:id="'img-' + ${item.getName()}" data-category="${category.name}" alt="">
                         </div>
                         <div class="info">
                             <div class="service-type-text" th:text="${item.getName()}"></div>
