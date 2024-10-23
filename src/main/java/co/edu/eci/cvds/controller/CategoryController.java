@@ -48,7 +48,7 @@ public class CategoryController {
             model.addAttribute("category", categoryService.getCategory(id));
         }
         catch (ServiceException e){
-            System.out.println("error");
+            throw new RuntimeException(e);
         }
     }
 

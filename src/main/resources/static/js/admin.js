@@ -6,7 +6,7 @@ function formatServiceName(name) {
 
 // Obtener todos los elementos de imagen y actualizar sus rutas
 document.querySelectorAll('[id^="img-"]').forEach(function(img) {
-    var serviceName = img.getAttribute('id').substring(4); // Obtener el nombre del servicio
-    var formattedServiceName = formatServiceName(serviceName); // Formatear el nombre del servicio
+    let serviceName = img.getAttribute('id').substring(4); // Obtener el nombre del servicio
+    let formattedServiceName = formatServiceName(serviceName); // Formatear el nombre del servicio
     img.setAttribute('src', '/static/images/servicios/' + formattedServiceName + '.png'); // Actualizar la ruta de la imagen
 });

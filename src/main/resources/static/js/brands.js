@@ -1,18 +1,18 @@
 // agregar imágenes a los botones
 function addImage(brandName) {
     // busca las imagenes correspondientes a la marca
-    var images = obtenerImagenesDeMarca(brandName); // array de objetos con src y alt
+    let images = obtenerImagenesDeMarca(brandName); // array de objetos con src y alt
 
     // encontrar el boton correspondiente a la marca
-    var buttons = document.querySelectorAll('.rectangle-grid button');
-    var button;
+    let buttons = document.querySelectorAll('.rectangle-grid button');
+    let button;
     buttons.forEach(function(btn) {
         if (btn.innerText.trim() === brandName) {
             button = btn;
         }
     });
     images.forEach(function(image) {// crear y agrega las imágenes al botón
-        var img = createImage(image.src, image.alt);
+        let img = createImage(image.src, image.alt);
         button.appendChild(img);
     });
     return false; // evitar que el formulario se envíe
@@ -20,7 +20,7 @@ function addImage(brandName) {
 
 // Crea una imagen
 function createImage(src, alt) {
-    var img = document.createElement('img');
+    let img = document.createElement('img');
     img.src = src;
     img.alt = alt;
     return img;
@@ -28,9 +28,9 @@ function createImage(src, alt) {
 
 
 function obtenerImagenesDeMarca(brandNames) {
-    var images = [];
+    let images = [];
     brandNames.forEach(function(brandName) {
-        var imagePath = "../static/images/brands/" + brandName.toLowerCase() + ".png";
+        let imagePath = "../static/images/brands/" + brandName.toLowerCase() + ".png";
         images.push({ src: imagePath, alt: brandName });
     });
     return images;

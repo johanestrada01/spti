@@ -1,6 +1,5 @@
 package co.edu.eci.cvds;
 
-import co.edu.eci.cvds.exceptions.ModelException;
 import co.edu.eci.cvds.model.*;
 import co.edu.eci.cvds.repository.CategoryRepository;
 import co.edu.eci.cvds.repository.ItemRepository;
@@ -45,7 +44,6 @@ public class SpringApplicationCvds {
 		User user = new User("Juan", 123, 123456789, "juan@mail.com", "juan");
 		userRepository.save(user);
 		return (args) -> {
-			System.out.println("Running...");
 		};
 	}
 
