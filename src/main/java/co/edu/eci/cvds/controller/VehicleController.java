@@ -16,6 +16,8 @@ import java.util.List;
 @Controller
 public class VehicleController {
 
+    private String brandString = "brand";
+    private String vehicleString = "vehicle";
     private final VehicleService vehicleService;
     private static final String BAD_REQUEST = "Bad Request";
 
@@ -39,7 +41,7 @@ public class VehicleController {
     @PostMapping("/models")
     public String getModels(String brand, Model model){
         List<String> models = vehicleService.getModels(brand);
-        model.addAttribute("brand", brand);
+        model.addAttribute(brandString, brand);
         model.addAttribute("models", models);
         return "models";
     }
@@ -47,7 +49,7 @@ public class VehicleController {
     @PostMapping("/years")
     public String getYears(String brand, String modelVehicle, Model model){
         List<Integer> years = vehicleService.getYears(brand, modelVehicle);
-        model.addAttribute("brand", brand);
+        model.addAttribute(brandString, brand);
         model.addAttribute("modelVehicle", modelVehicle);
         model.addAttribute("years", years);
         return "years";
@@ -56,7 +58,7 @@ public class VehicleController {
     @PostMapping("/cylinderCapacity")
     public String getCylinderCapacity(String brand, String modelVehicle, Integer year, Model model){
         List<Integer> cylinders = vehicleService.getCylinders(brand, modelVehicle, year);
-        model.addAttribute("brand", brand);
+        model.addAttribute(brandString, brand);
         model.addAttribute("modelVehicle", modelVehicle);
         model.addAttribute("year", year);
         model.addAttribute("cylinders", cylinders);
@@ -68,7 +70,7 @@ public class VehicleController {
                             Model model, RedirectAttributes redirectAttributes){
         Vehicle vehicle = vehicleService.getVehicleByParameters(brand, modelVehicle, year, cylinder);
         redirectAttributes.addFlashAttribute("categoryId", categoryId);
-        redirectAttributes.addFlashAttribute("vehicle", vehicle);
+        redirectAttributes.addFlashAttribute(vehicleString, vehicle);
         return "redirect:/quotation/addQuotation";
     }
 
@@ -83,7 +85,7 @@ public class VehicleController {
     public String getVehicleById(@PathVariable int id, Model model) throws ControllerException {
         try{
             Vehicle vehicle = vehicleService.getVehicle(id);
-            model.addAttribute("vehicle", vehicle);
+            model.addAttribute(vehicleString, vehicle);
             return "/";
         }
         catch(ServiceException serviceException){
@@ -95,7 +97,7 @@ public class VehicleController {
     public String updateVehicle(@RequestBody Vehicle vehicle, Model model) throws ControllerException {
         try{
             vehicleService.updateVehicle(vehicle);
-            model.addAttribute("vehicle", vehicle);
+            model.addAttribute(vehicleString, vehicle);
             return "/";
         }
         catch(ServiceException serviceException){
