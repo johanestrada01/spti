@@ -17,6 +17,7 @@ import java.util.List;
 public class VehicleController {
 
     private final VehicleService vehicleService;
+    private static final String badRequest = "Bad Request";
 
     @Autowired
     public VehicleController(VehicleService vehicleService){
@@ -86,7 +87,7 @@ public class VehicleController {
             return "/";
         }
         catch(ServiceException serviceException){
-            throw new ControllerException("Bad Request");
+            throw new ControllerException(badRequest);
         }
     }
 
@@ -98,7 +99,7 @@ public class VehicleController {
             return "/";
         }
         catch(ServiceException serviceException){
-            throw new ControllerException("Bad Request");
+            throw new ControllerException(badRequest);
         }
     }
 
@@ -115,7 +116,7 @@ public class VehicleController {
             return "/";
         }
         catch(ServiceException serviceException){
-            throw new ControllerException("Bad Request");
+            throw new ControllerException(badRequest);
         }
     }
 }

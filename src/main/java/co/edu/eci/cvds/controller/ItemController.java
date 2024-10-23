@@ -23,6 +23,8 @@ public class ItemController {
 
     private final ItemService itemService;
     private final CategoryService categoryService;
+    private static final String badRequest = "Bad Request";
+    private static final String redirectLogin = "redirect:/login/test";
 
     @Autowired
     public ItemController(ItemService itemService, CategoryService categoryService){
@@ -33,7 +35,7 @@ public class ItemController {
     @GetMapping("/add")
     public String addI(){
         if (!LoginController.isLogin()){
-            return "redirect:/login/test";
+            return redirectLogin;
         }
         return "new_service";
     }
@@ -57,7 +59,7 @@ public class ItemController {
             model.addAttribute("items", newItems);
             return "imprimir";
         } catch (ServiceException e) {
-            throw new ControllerException("Bad Request");
+            throw new ControllerException(badRequest);
         }
     }
 
@@ -89,7 +91,7 @@ public class ItemController {
     public String getAllItems(Model model){
         model.addAttribute("items", itemService.getAllItems());
         if (!LoginController.isLogin()){
-            return "redirect:/login/test";
+            return redirectLogin;
         }
         return "admin_items";
     }
@@ -99,10 +101,10 @@ public class ItemController {
         try {
             itemService.updateItem(item);
         } catch (ServiceException e) {
-            throw new ControllerException("Bad Request");
+            throw new ControllerException(badRequest);
         }
         if (!LoginController.isLogin()){
-            return "redirect:/login/test";
+            return
         }
         return "redirect:/user/getQuotation";
     }
@@ -117,7 +119,7 @@ public class ItemController {
         try {
             itemService.deleteItem(id);
         } catch (ServiceException e) {
-            throw new ControllerException("Bad Request");
+            throw new ControllerException(badRequest);
         }
         return "admin_items";
     }
@@ -132,7 +134,7 @@ public class ItemController {
         try {
             model.addAttribute("subTotal", itemService.calculateSubtotal(id));
         } catch (ServiceException e) {
-            throw new ControllerException("Bad Request");
+            throw new ControllerException(badRequest);
         }
     }
 
@@ -146,7 +148,7 @@ public class ItemController {
         try {
             model.addAttribute("total", itemService.calculateTotal(id));
         } catch (ServiceException e) {
-            throw new ControllerException("Bad Request");
+            throw new ControllerException(badRequest);
         }
     }
 
@@ -160,7 +162,7 @@ public class ItemController {
         try {
             itemService.addCategory(id, category);
         } catch (ServiceException e) {
-            throw new ControllerException("Bad Request");
+            throw new ControllerException(badRequest);
         }
     }
     

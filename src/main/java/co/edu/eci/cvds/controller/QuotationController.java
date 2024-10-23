@@ -17,6 +17,7 @@ import java.util.List;
 public class QuotationController {
 
     QuotationService quotationService;
+    private static final String badRequest = "Bad Request";
 
     @Autowired
     public QuotationController(QuotationService quotationService){
@@ -45,7 +46,7 @@ public class QuotationController {
             redirectAttributes.addFlashAttribute("quotation", quotationService.getQuotation(quotation.getQuotationId()));
             return "redirect:/item/";
         } catch (ServiceException e) {
-            throw new ControllerException("Bad Request");
+            throw new ControllerException(badRequest);
         }
     }
 
@@ -60,7 +61,7 @@ public class QuotationController {
             quotationService.updateQuotation(quotation);
             model.addAttribute("quotation", quotation);
         } catch (ServiceException e) {
-            throw new ControllerException("Bad Request");
+            throw new ControllerException(badRequest);
         }
     }
 
@@ -74,7 +75,7 @@ public class QuotationController {
         try {
             quotationService.deleteQuotation(id);
         } catch (ServiceException e) {
-            throw new ControllerException("Bad Request");
+            throw new ControllerException(badRequest);
         }
     }
 
@@ -96,7 +97,7 @@ public class QuotationController {
             redirectAttributes.addFlashAttribute("quotation", quotationService.getQuotation(quotation.getQuotationId()));
             return "redirect:/category/getAllCategories";
         } catch (ServiceException e) {
-            throw new ControllerException("Bad Request");
+            throw new ControllerException(badRequest);
         }
     }
 
@@ -118,7 +119,7 @@ public class QuotationController {
             redirectAttributes.addFlashAttribute("quotation", quotationService.getQuotation(quotation.getQuotationId()));
             return "redirect:/quotation/getTotalById";
         } catch (ServiceException e) {
-            throw new ControllerException("Bad Request");
+            throw new ControllerException(badRequest);
         }
     }
 
@@ -141,7 +142,7 @@ public class QuotationController {
             redirectAttributes.addFlashAttribute("categoryId", newCategoryId);
             return "redirect:/quotation/addItemById";
         } catch (ServiceException e) {
-            throw new ControllerException("Bad Request");
+            throw new ControllerException(badRequest);
         }
     }
 
@@ -160,7 +161,7 @@ public class QuotationController {
             redirectAttributes.addFlashAttribute("quotation", quotationService.getQuotation(quotation.getQuotationId()));
             return "redirect:/category/getAllCategories";
         } catch (ServiceException e) {
-            throw new ControllerException("Bad Request");
+            throw new ControllerException(badRequest);
         }
     }
 
@@ -182,7 +183,7 @@ public class QuotationController {
             redirectAttributes.addFlashAttribute("categoryId", categoryId);
             return "redirect:/quotation/getQuotationValues";
         } catch (ServiceException e) {
-            throw new ControllerException("Bad Request");
+            throw new ControllerException(badRequest);
         }
     }
 
@@ -205,7 +206,7 @@ public class QuotationController {
             redirectAttributes.addFlashAttribute("categoryId", newCategoryId);
             return "redirect:/quotation/getQuotationValues";
         } catch (ServiceException e) {
-            throw new ControllerException("Bad Request");
+            throw new ControllerException(badRequest);
         }
     }
 

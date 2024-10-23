@@ -17,6 +17,7 @@ public class LoginController {
 
     private static final Logger log = LoggerFactory.getLogger(LoginController.class);
     public static boolean login = false;
+    private static final String loginOficial = "login_oficial";
 
     @Autowired
     UserService userService;
@@ -29,7 +30,7 @@ public class LoginController {
 
     @GetMapping("/test")
     public String loginTest() {
-        return "login_oficial";
+        return loginOficial;
     }
 
     @PostMapping("/correct")
@@ -38,13 +39,13 @@ public class LoginController {
         if(login) {
             return "redirect:/user/getQuotation";
         }
-        return "login_oficial";
+        return loginOficial;
     }
 
     @GetMapping("/correct")
     public String loginNoCorrect(){
         login = false;
-        return "login_oficial";
+        return loginOficial;
     }
 
 
