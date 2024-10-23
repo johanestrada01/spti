@@ -1,6 +1,7 @@
 package co.edu.eci.cvds.controller;
 
 
+import co.edu.eci.cvds.exceptions.ControllerException;
 import co.edu.eci.cvds.exceptions.ServiceException;
 import co.edu.eci.cvds.model.Category;
 import co.edu.eci.cvds.model.Quotation;
@@ -43,12 +44,12 @@ public class CategoryController {
 
 
     @GetMapping("/getCategory/{id}")
-    public void getCategory(@PathVariable int id, Model model){
+    public void getCategory(@PathVariable int id, Model model) throws ControllerException {
         try {
             model.addAttribute("category", categoryService.getCategory(id));
         }
         catch (ServiceException e){
-            throw new RuntimeException(e);
+            throw new ControllerException("Bad Request");
         }
     }
 
