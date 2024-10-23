@@ -41,13 +41,13 @@ public class LoginController {
     }
 
     @GetMapping("/correct")
-    public String loginNoCorrect(){
+    public static String loginNoCorrect(){
         login = false;
         return LOGIN_OFICIAL;
     }
 
 
-    public void login(String email, String password){
+    public static void login(String email, String password){
         try {
             login = userService.login(email, password);
         } catch (UserException e) {
