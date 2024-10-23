@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
-public class UserServiceTest{
+class UserServiceTest{
 
     @Autowired
     private UserService userService;
@@ -69,7 +69,7 @@ public class UserServiceTest{
 
 
     @Test
-    public void ShouldCreationNameUserTest(){
+    void ShouldCreationNameUserTest(){
         User user = new User("Juan", 123, 123456789, "juan@gmail.com", "pswd");
         userService.addUser(user);
         try {
@@ -80,14 +80,14 @@ public class UserServiceTest{
     }
 
     @Test
-    public void ShouldCreationUser(){
+    void ShouldCreationUser(){
         User user = new User("Juan", 123, 123456789, "juan@gmail.com", "pswd");
         userService.addUser(user);
         assertEquals(1, userService.getAllUsers().size());
     }
 
     @Test
-    public void ShouldDeleteUser(){
+    void ShouldDeleteUser(){
         User user = new User("Juan", 123, 123456789, "juan@gmail.com", "pswd");
         userService.addUser(user);
         userService.deleteUser(user);
@@ -100,7 +100,7 @@ public class UserServiceTest{
     }
 
     @Test
-    public void ShouldUpdateUserTest(){
+    void ShouldUpdateUserTest(){
         User user = new User("Juan", 123, 123456789, "juan@gmail.com", "pswd");
         userService.addUser(user);
         User newUser = new User("David", 123, 123456789, "juan@gmail.com", "pswd");
@@ -114,19 +114,19 @@ public class UserServiceTest{
     }
 
     @Test
-    public void shouldDeleteUserById(){
+    void shouldDeleteUserById(){
         User user = new User("Juan", 123, 123456789, "juan@gmail.com", "pswd");
         userService.addUser(user);
         try{
             userService.deleteUser(userService.getAllUsers().get(0).getUserId());
-            assertEquals(userService.getAllUsers().size(), 0);
+            assertEquals(0, userService.getAllUsers().size());
         } catch (UserException e){
             fail();
         }
     }
 
     @Test
-    public void shouldManyInsertions(){
+    void shouldManyInsertions(){
         User user1 = new User("Juan", 123, 1234567891, "juan@gmail.com", "pswd");
         User user2 = new User("David", 124, 1234567892, "david@gmail.com", "pswd");
         User user3 = new User("Mauricio", 125, 1234567893, "mauricio@gmail.com", "pswd");
@@ -137,7 +137,7 @@ public class UserServiceTest{
     }
 
     @Test
-    public void shouldFailDelete(){
+    void shouldFailDelete(){
         User user = new User("Juan", 123, 1234567891, "juan@gmail.com", "pswd");
         userService.addUser(user);
         try{
@@ -149,7 +149,7 @@ public class UserServiceTest{
     }
 
     @Test
-    public void shouldManyDelete(){
+    void shouldManyDelete(){
         User user1 = new User("Juan", 123, 1234567891, "juan@gmail.com", "pswd");
         User user2 = new User("David", 124, 1234567892, "david@gmail.com", "pswd");
         User user3 = new User("Mauricio", 125, 1234567893, "mauricio@gmail.com", "pswd");
@@ -163,7 +163,7 @@ public class UserServiceTest{
     }
 
     @Test
-    public void shouldManyDeleteById(){
+    void shouldManyDeleteById(){
         User user1 = new User("Juan", 123, 1234567891, "juan@gmail.com", "pswd");
         User user2 = new User("David", 124, 1234567892, "david@gmail.com", "pswd");
         User user3 = new User("Mauricio", 125, 1234567893, "mauricio@gmail.com", "pswd");
