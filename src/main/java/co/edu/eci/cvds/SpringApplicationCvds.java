@@ -20,13 +20,7 @@ public class SpringApplicationCvds {
 	private final ConfigurationService configurationService;
 
 	@Autowired
-	UserRepository userRepository;
-	@Autowired
-	QuotationRepository quotationRepository;
-	@Autowired
-	ItemRepository itemRepository;
-	@Autowired
-	CategoryRepository categoryRepository;
+	public SpringApplicationCvds(UserRepository userRepository, QuotationRepository quotationRepository, ItemRepository itemRepository, CategoryRepository categoryRepository){}
 
 	@Autowired
 	public SpringApplicationCvds(

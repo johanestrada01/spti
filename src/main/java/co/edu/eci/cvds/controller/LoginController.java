@@ -16,16 +16,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class LoginController {
 
     private static final Logger log = LoggerFactory.getLogger(LoginController.class);
-    public static boolean login;
+    private static boolean login = false;
     private static final String LOGIN_OFICIAL = "login_oficial";
 
-    @Autowired
-    UserService userService;
 
 
     @Autowired
-    public LoginController() {
-        this.login = false;
+    public LoginController(UserService userService) {
+        //void
     }
 
     @GetMapping("/test")
