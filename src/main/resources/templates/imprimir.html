@@ -12,7 +12,6 @@
     <h1 class="text"> Cotización </h1>
     <div class="centered">
         <div class="rectangle">
-            <!--<div id="car-selected">Audi A3 2022</div>-->
             <div id="car-selected" th:text="${vehicle.getBrand() + ' ' + vehicle.getModel() + ' ' + vehicle.getYear()}"></div>
             <div id="quotationid" th:value="${quotation.getQuotationId()}"></div>
             <div id="registry-info">

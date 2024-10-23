@@ -23,12 +23,6 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-//    @GetMapping("/getAllCategories")
-//    public String getAllCategories(@ModelAttribute("vehicle") Vehicle vehicle, Model model){
-//        model.addAttribute("categories", categoryService.getAllCategories());
-//        return "quote";
-//    }
-
     @GetMapping("/getAllCategories")
     public String getAllCategories(@ModelAttribute("vehicle") Vehicle vehicle, @ModelAttribute("category") Category category,
                                    @ModelAttribute("quotation") Quotation quotation,
@@ -41,21 +35,9 @@ public class CategoryController {
         return "redirect:/quotation/getQuotation";
     }
 
-//    @PostMapping("/getAllCategories")
-//    public String getAllCategoriesPost(@ModelAttribute("vehicle") Vehicle vehicle, @ModelAttribute("category") Category category,
-//                                       @ModelAttribute("quotation") Quotation quotation, Model model,
-//                                       RedirectAttributes redirectAttributes){
-//        redirectAttributes.addFlashAttribute("quotation", quotation);
-//        redirectAttributes.addFlashAttribute("vehicle", vehicle);
-//        redirectAttributes.addFlashAttribute("categoryId", category.getCategoryId());
-//        redirectAttributes.addFlashAttribute("categories", categoryService.getAllCategories());
-//        return "redirect:/item/";
-//    }
-
     @PostMapping("/putCategory")
     public String addCategory(@RequestBody Category category, Model model){
         categoryService.addCategory(category);
-        //model.addAttribute("categories", categoryService.getAllCategories());
         return "redirect://quote";
     }
 

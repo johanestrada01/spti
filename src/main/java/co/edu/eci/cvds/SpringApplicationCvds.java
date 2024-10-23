@@ -41,7 +41,7 @@ public class SpringApplicationCvds {
 	}
 
 	@Bean
-	public CommandLineRunner run() throws ModelException {
+	public CommandLineRunner run(){
 		User user = new User("Juan", 123, 123456789, "juan@mail.com", "juan");
 		userRepository.save(user);
 		return (args) -> {

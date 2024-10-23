@@ -49,7 +49,7 @@ public class UserServiceTest{
         User user = new User("Juan", 123, 123456789, "juan@gmail.com", "pswd");
         userService.addUser(user);
         try {
-            User login = userService.findByEmail("juan@gmail.com");
+            userService.findByEmail("juan@gmail.com");
         } catch (UserException e){
             fail();
         }
@@ -60,7 +60,7 @@ public class UserServiceTest{
         User user = new User("Juan", 123, 123456789, "juan@gmail.com", "pswd");
         userService.addUser(user);
         try {
-            User login = userService.findByEmail("david@gmail.com");
+            userService.findByEmail("david@gmail.com");
             fail();
         } catch (UserException e){
             assertEquals(1, userService.getAllUsers().size());

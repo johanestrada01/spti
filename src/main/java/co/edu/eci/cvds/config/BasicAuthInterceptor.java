@@ -20,15 +20,6 @@ public class BasicAuthInterceptor implements HandlerInterceptor {
     public BasicAuthInterceptor() {
     }
 
-
-    private String getCookieValue(HttpServletRequest req, String cookieName) {
-        return Arrays.stream(req.getCookies())
-                .filter(c -> c.getName().equals(cookieName))
-                .findFirst()
-                .map(Cookie::getValue)
-                .orElse(null);
-    }
-
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         return true;
@@ -36,11 +27,11 @@ public class BasicAuthInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        //log.info("BasicAuthInterceptor::postHandle()");
+        // void
     }
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        //log.info("BasicAuthInterceptor::afterCompletion()");
+        // void
     }
 }

@@ -50,7 +50,6 @@ public class UserService {
         update.setEmail(user.getEmail());
         update.setPassword(user.getPassword());
         userRepository.save(update);
-        //userRepository.updateUser(user.getUserId(), user.getUserName(), user.getIdentificationNumber(), user.getTelephoneNumber(), user.getEmail(), user.getPassword());
     }
 
     public void deleteUser(User user){

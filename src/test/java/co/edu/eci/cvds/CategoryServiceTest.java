@@ -12,8 +12,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/*import org.junit.jupiter.api.Test;*/
-
 @SpringBootTest
 class CategoryServiceTest {
 
@@ -47,7 +45,7 @@ class CategoryServiceTest {
     @Test
     void shouldNotGetACategoryById() {
         try{
-            Category a=categoryService.getCategory(0);
+            categoryService.getCategory(0);
             fail();
         }
         catch (ServiceException serviceException){
