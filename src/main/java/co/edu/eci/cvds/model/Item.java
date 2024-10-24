@@ -153,10 +153,6 @@ public class Item {
         this.tax = tax;
     }
 
-    public Boolean getAvailability() {
-        return availability;
-    }
-
     public void setAvailability(Boolean availability) {
         this.availability = availability;
     }

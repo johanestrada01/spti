@@ -16,6 +16,7 @@ public class BasicAuthInterceptor implements HandlerInterceptor {
 
     @Autowired
     public BasicAuthInterceptor() {
+        //void
     }
 
     @Override

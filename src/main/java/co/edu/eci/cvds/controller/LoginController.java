@@ -16,16 +16,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class LoginController {
 
     private static final Logger log = LoggerFactory.getLogger(LoginController.class);
-    public static boolean login;
+    private static boolean login = false;
     private static final String LOGIN_OFICIAL = "login_oficial";
 
-    @Autowired
-    UserService userService;
 
 
     @Autowired
-    public LoginController() {
-        this.login = false;
+    public LoginController(UserService userService) {
+        //void
     }
 
     @GetMapping("/test")
@@ -43,13 +41,13 @@ public class LoginController {
     }
 
     @GetMapping("/correct")
-    public String loginNoCorrect(){
+    public static String loginNoCorrect(){
         login = false;
         return LOGIN_OFICIAL;
     }
 
 
-    public void login(String email, String password){
+    public static void login(String email, String password){
         try {
             login = userService.login(email, password);
         } catch (UserException e) {

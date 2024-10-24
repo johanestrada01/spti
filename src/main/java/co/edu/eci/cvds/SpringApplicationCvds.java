@@ -19,14 +19,9 @@ import org.springframework.web.client.RestTemplate;
 public class SpringApplicationCvds {
 	private final ConfigurationService configurationService;
 
-	@Autowired
-	UserRepository userRepository;
-	@Autowired
-	QuotationRepository quotationRepository;
-	@Autowired
-	ItemRepository itemRepository;
-	@Autowired
-	CategoryRepository categoryRepository;
+	public SpringApplicationCvds(UserRepository userRepository, QuotationRepository quotationRepository, ItemRepository itemRepository, CategoryRepository categoryRepository){
+		//void
+	}
 
 	@Autowired
 	public SpringApplicationCvds(
