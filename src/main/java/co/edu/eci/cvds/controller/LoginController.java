@@ -18,12 +18,11 @@ public class LoginController {
     private static final Logger log = LoggerFactory.getLogger(LoginController.class);
     private static boolean login = false;
     private static final String LOGIN_OFICIAL = "login_oficial";
-
-
+    private static UserService userService;
 
     @Autowired
     public LoginController(UserService userService) {
-        //void
+        this.userService = userService;
     }
 
     @GetMapping("/test")

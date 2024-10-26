@@ -46,7 +46,7 @@ public class ItemService {
         update.setValue(item.getValue());
         update.setCurrency(item.getCurrency());
         update.setDiscount(item.getDiscount());
-        update.setAvailability(item.getAvailability());
+        update.setAvailability(item.isAvailable());
         update.setTax(item.getTax());
         update.setCategory(item.getCategory());
         update.setQuotations(item.getQuotations());
@@ -90,12 +90,12 @@ public class ItemService {
     }
 
     public boolean isAvailable(Item item){
-        return item.getAvailability();
+        return item.isAvailable();
     }
 
     public boolean isAvailable(int id) throws ServiceException {
         Item item = getItem(id);
-        return item.getAvailability();
+        return item.isAvailable();
     }
 
     public void addCategory(Item item, Category category){

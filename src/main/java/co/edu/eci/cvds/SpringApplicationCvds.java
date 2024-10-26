@@ -18,17 +18,20 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 public class SpringApplicationCvds {
 	private final ConfigurationService configurationService;
-
-	public SpringApplicationCvds(UserRepository userRepository, QuotationRepository quotationRepository, ItemRepository itemRepository, CategoryRepository categoryRepository){
-		//void
-	}
+	private final UserRepository userRepository;
+	private final QuotationRepository quotationRepository;
+	private final ItemRepository itemRepository;
+	private final CategoryRepository categoryRepository;
 
 	@Autowired
-	public SpringApplicationCvds(
-			ConfigurationService configurationService
-	) {
-		this.configurationService = configurationService;
-	}
+	public SpringApplicationCvds(UserRepository userRepository, QuotationRepository quotationRepository, ItemRepository itemRepository, CategoryRepository categoryRepository, ConfigurationService configurationService){
+        this.configurationService = configurationService;
+		this.userRepository = userRepository;
+		this.quotationRepository = quotationRepository;
+		this.itemRepository = itemRepository;
+		this.categoryRepository = categoryRepository;
+    }
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringApplicationCvds.class, args);

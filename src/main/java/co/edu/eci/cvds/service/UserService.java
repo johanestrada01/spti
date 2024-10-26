@@ -33,7 +33,7 @@ public class UserService {
     public User getUser(int id) throws UserException {
         Optional<User> result = userRepository.findById(id);
         if(result.isEmpty()){
-            throw new UserException(UserException.userNotFound);
+            throw new UserException(UserException.USER_NOT_FOUND);
         }
         return result.get();
     }
@@ -64,7 +64,7 @@ public class UserService {
     public User findByEmail(String email) throws UserException{
         User user = userRepository.findByEmail(email);
         if(user == null){
-            throw new UserException(UserException.userNotFound);
+            throw new UserException(UserException.USER_NOT_FOUND);
         }
         return user;
     }
